@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WorkController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    return view('home.screen');
+});*/
+
+Route::get('/', [WorkController::class, 'index']); 
+
+Route::get('/works/create', [WorkController::class, 'create']);
+
+Route::post('/works', [WorkController::class, 'homework_store']);

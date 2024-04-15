@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class StudentSeeder extends Seeder
+class WorkSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,32 +16,30 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('students')->insert([
-            'name' => 'お試し太郎',
-            'grade' => '中2',
-            'gender' => '男',
+        DB::table('works')->insert([
+            'content' => '数学',
+            'coment' => 'がんばれー',
             'teacher_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
-        
-        DB::table('students')->insert([
-            'name' => 'お試し次郎',
-            'grade' => '小2',
-            'gender' => '男',
+            
+        DB::table('works')->insert([
+            'content' => '国語',
+            'coment' => 'がんばれー',
             'teacher_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
             
-        DB::table('students')->insert([
-            'name' => 'お試し花子',
-            'grade' => '中1',
-            'gender' => '女',
+        DB::table('works')->insert([
+            'content' => '英語',
+            'coment' => 'がんばれー',
             'teacher_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
+            
         //
     }
 }

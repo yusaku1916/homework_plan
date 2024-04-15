@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkController; 
+use App\Http\Controllers\PlanController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::get('/', [WorkController::class, 'index']);
 Route::get('/works/create', [WorkController::class, 'create']);
 
 Route::post('/works', [WorkController::class, 'homework_store']);
+
+Route::get('/plans/create', [PlanController::class, 'plan_create']);
+
+Route::post('/plans', [PlanController::class, 'plan_store']);

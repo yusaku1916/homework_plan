@@ -8,24 +8,25 @@
     </head>
     <body>
         <h1>宿題連絡帳</h1>
-        @foreach ($works as $work)
         <div class='works'>
             <div>
                 <h2>今週の宿題</h2>
-                <p class='works_content'>{{ $work->content }}</p>
+                <p class='works_content'>{{ $works->content }}</p>
             </div>
             <div>
                 <h2>アドバイス・コメント</h2>
-                <p　class='coment'>{{ $work->coment }}</p>
+                <p　class='coment'>{{ $works->coment }}</p>
             </div>
         </div>
-        @endforeach
         <button type=“button” onclick="location.href='/works/create'"><!-- onclick についてわかっていない -->
             先生ページへ    
         </button>
         <hr>
         <div>
             <h2>今週の計画</h2>
+            <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
+                計画を立てる    
+            </button>
             <table border="1">
                 <tr>
                     <th>日</th>

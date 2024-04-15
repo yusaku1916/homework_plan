@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Work;
 use App\Models\Teacher;
-use App\Http\Requests\WorkRequest;
+//use App\Http\Requests\WorkRequest;
 
 class WorkController extends Controller
 {
     public function index(Work $work)//インポートしたPostをインスタンス化して$postとして使用。
     {
-        return view('home.screen')->with(['works' => $work->get()]);//$postの中身を戻り値にする。
+        $latestWork = Work::where('teacher_id', 1)->latest()->first();
+        return view('home.screen')->with(['works' => $latestWork]);//$postの中身を戻り値にする。
+        //latest()メソッドはviewの中では使えない？からまずデータを渡してからviewに入れてる
     }
     
     public function create(Teacher $teacher)

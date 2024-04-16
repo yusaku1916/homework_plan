@@ -19,7 +19,8 @@ class PlanController extends Controller
     {
         $input = $request['plan'];
         $plan->fill($input)->save();
-        return redirect('/');
+        return redirect('/plans/create');
+        
     }
 
     //

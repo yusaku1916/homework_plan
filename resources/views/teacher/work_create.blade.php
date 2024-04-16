@@ -46,13 +46,13 @@
                     <th>土</th>
                 </tr>
                 <tr>
-                    <td>何か</td>
-                    <td>なんか</td>
-                    <td>やらない</td>
-                    <td>あそぶ</td>
-                    <td>ねる</td>
-                    <td>マッサージ</td>
-                    <td>睡眠</td>
+                    <td><p>{{ $plans1->content }}</p></td>
+                    <td><p>{{ $plans2->content }}</p></td>
+                    <td><p>{{ $plans3->content }}</p></td>
+                    <td><p>{{ $plans4->content }}</p></td>
+                    <td><p>{{ $plans5->content }}</p></td>
+                    <td><p>{{ $plans6->content }}</p></td>
+                    <td><p>{{ $plans7->content }}</p></td>
                 </tr>
             </table>
         </div>

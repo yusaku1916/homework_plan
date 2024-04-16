@@ -19,5 +19,11 @@ class Work extends Model
         {
             return $this->belongsTo(Teacher::class);
         }
+
+    public function getNew(int $teacher_number)
+        {
+            $NewWork = Plan::where('teacher_id', $teacher_number)->latest()->first();
+            return $this->$NewWork;
+        }
 }
 

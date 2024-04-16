@@ -29,4 +29,11 @@ class Plan extends Model
             return $this->belongsTo(Student::class);
         }
 
+        
+    public function getPlanDay(int $day_number, int $work_number)
+        {
+            return $this->latest()
+            ->firstWhere(['day_id'=>$day_number,
+                        'work_id'=>$work_number]);
+        }
 }

@@ -46,13 +46,59 @@
                     <th>土</th>
                 </tr>
                 <tr>
-                    <td><p>{{ $plans1->content }}</p></td>
-                    <td><p>{{ $plans2->content }}</p></td>
-                    <td><p>{{ $plans3->content }}</p></td>
-                    <td><p>{{ $plans4->content }}</p></td>
-                    <td><p>{{ $plans5->content }}</p></td>
-                    <td><p>{{ $plans6->content }}</p></td>
-                    <td><p>{{ $plans7->content }}</p></td>
+                    @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
+                        <td colspan="7"><p>予定作成を促そう</p></td>
+                    @else
+                        <td>
+                            @if(is_null($plans1))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans1->content }}</p>
+                            @endif
+                        </td>
+                        <td>>
+                            @if(is_null($plans2))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans2->content }}</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if(is_null($plans3))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans3->content }}</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if(is_null($plans4))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans4->content }}</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if(is_null($plans5))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans5->content }}</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if(is_null($plans6))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans6->content }}</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if(is_null($plans7))
+                            <p>お休み</p>
+                            @else
+                            <p>{{ $plans7->content }}</p>
+                            @endif
+                        </td>
+                    @endif
                 </tr>
             </table>
         </div>

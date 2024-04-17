@@ -28,3 +28,7 @@ Route::post('/works', [WorkController::class, 'homework_store']);
 Route::get('/plans/create', [PlanController::class, 'plan_create']);
 
 Route::post('/plans', [PlanController::class, 'plan_store']);
+
+Route::post('/submits/create', [PlanController::class, 'submit_create']);
+
+Route::post('/submits', [PlanController::class, 'submit_store']);

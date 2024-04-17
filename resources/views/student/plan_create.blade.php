@@ -37,7 +37,7 @@
                         <form action="/plans" method="POST">
                             @csrf
                             <input type="hidden" name="plan[day_id]" value="{{ $i }}">
-                            <input type="hidden" name="plan[work_id]" value="1" >
+                            <input type="hidden" name="plan[work_id]" value="{{ $work_number }}" >
                             <input type="hidden" name="plan[student_id]" value="1">
                             <textarea name="plan[content]" placeholder="今週も頑張りましょう！"></textarea>
                             <input type="submit" value="完了"/>

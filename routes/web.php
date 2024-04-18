@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkController; 
 use App\Http\Controllers\PlanController; 
+use App\Http\Controllers\SubmitController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,6 @@ Route::get('/plans/create', [PlanController::class, 'plan_create']);
 
 Route::post('/plans', [PlanController::class, 'plan_store']);
 
-Route::post('/submits/create', [PlanController::class, 'submit_create']);
+Route::get('/submits/create', [SubmitController::class, 'submit_create']);
 
-Route::post('/submits', [PlanController::class, 'submit_store']);
+Route::post('/submits', [SubmitController::class, 'submit_store']);

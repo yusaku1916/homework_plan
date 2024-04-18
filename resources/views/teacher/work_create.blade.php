@@ -25,7 +25,7 @@
                     @foreach($teachers as $teacher)
                         <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                     @endforeach
-    </select>
+                </select>
             </div>
             <input type="submit" value="完了"/>
         </form>

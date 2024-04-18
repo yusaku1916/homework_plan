@@ -15,7 +15,6 @@ class Plan extends Model
         'student_id',
     ];
     
-    //「1対多」の関係なので単数系に
     public function day()
         {
             return $this->belongsTo(Day::class);

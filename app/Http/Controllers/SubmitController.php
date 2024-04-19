@@ -26,6 +26,7 @@ class SubmitController extends Controller
         $submit->content = $request->content;
         $submit->plan_id = $plan_id;
         $submit->student_id = $request->student_id ;
+        $submit->image = $request->image;
         $submit->save();
         return redirect('/');
         return view('student.submit');

@@ -56,7 +56,7 @@
                             <p>{{ $plans1->content }}</p>
                             @endif
                         </td>
-                        <td>>
+                        <td>
                             @if(is_null($plans2))
                             <p>お休み</p>
                             @else

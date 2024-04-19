@@ -13,15 +13,17 @@
                 <option value="{ $plan->id }}">{ $teacher->name }}</option>
             endforeach
         </select-->
-        <form action='/submits' method='POST'>
+        <form action='/submits' method='POST' enctype="multipart/form-data">
             @csrf
             <select name="D_number">
                 @foreach($days as $day)
                     <option value="{{ $day->id }}">{{ $day->day }}</option>
                 @endforeach
             </select>
-            <input type="text" name="content"/>
-            <input type="hidden" name="student_id" value="1">
+            <input type="text" name="content" placeholder="今日の学習を記録しよう！"/>
+            <input type="hidden" name="student_id" value="1"/>
+            <h2>写真でも記録しよう！</h2>
+            <input type="file" name="image"/>
             <input type="submit" value="完了"/>
         </form>
         <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->

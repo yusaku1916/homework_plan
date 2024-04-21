@@ -19,9 +19,16 @@ class PlanController extends Controller
     
     public function plan_store(Request $request, Plan $plan)
     {
-        $input = $request['plan'];
-        $plan->fill($input)->save();
+        for($i=0; $i<=6; $i++){
+            $plan = new $plan();
+            $input = $request['plan'];
+            $plan->fill($input);
+            $plan->day_id = $request->day_id[$i];
+            $plan->content = $request->content[$i];
+            $plan->save();
+        }
         return redirect('/plans/create');
+        
         
     }
 

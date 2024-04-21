@@ -19,13 +19,13 @@
             </div>
         </div>
         <button type=“button” onclick="location.href='/works/create'"><!-- onclick についてわかっていない -->
-            先生ページへ    
+            先生ページへ
         </button>
         <hr>
         <div>
             <h2>今週の計画</h2>
             <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
-                計画を立てる    
+                計画を立てる
             </button>
             <table border="1">
                 <tr>
@@ -39,53 +39,53 @@
                 </tr>
                 <tr>
                     @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
-                    
+
                         <td colspan="7"><p>学習予定を立てよう！</p></td>
                     @else
                         <td>
-                            @if(is_null($plans1))
+                            @if(is_null($plans1->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans1->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans2))
+                            @if(is_null($plans2->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans2->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans3))
+                            @if(is_null($plans3->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans3->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans4))
+                            @if(is_null($plans4->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans4->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans5))
+                            @if(is_null($plans5->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans5->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans6))
+                            @if(is_null($plans6->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans6->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans7))
+                            @if(is_null($plans7->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans7->content }}</p>

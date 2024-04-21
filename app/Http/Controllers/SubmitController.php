@@ -8,6 +8,7 @@ use App\Models\Day;
 use App\Models\Teacher;
 use App\Models\Plan;
 use App\Models\Submit;
+use App\Http\Requests\SubmitRequest;
 
 class SubmitController extends Controller
 {
@@ -18,7 +19,7 @@ class SubmitController extends Controller
                 'work_number' => $latestWork->id,
                 'days' => $day->get()]);
     }
-    public function submit_store(Request $request, Submit $submit, Work $work, Plan $plan){
+    public function submit_store(SubmitRequest $request, Submit $submit, Work $work, Plan $plan){
         $latestWork_id = Work::where('teacher_id', 1)->latest()->first()->id;
         $day_number = $request->D_number;
         $plan_id = Plan::where(['work_id'=>$latestWork_id, 'day_id'=>$day_number])->latest()->first()->id;
@@ -29,7 +30,6 @@ class SubmitController extends Controller
         $submit->image = $request->image;
         $submit->save();
         return redirect('/');
-        return view('student.submit');
     }
     //
 }

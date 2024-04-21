@@ -32,18 +32,18 @@
                     <th>土</th>
                 </tr>
                 <tr>
-                    @for($i=1; $i<=7; $i++)
-                    <td>
-                        <form action="/plans" method="POST">
-                            @csrf
-                            <input type="hidden" name="plan[day_id]" value="{{ $i }}">
-                            <input type="hidden" name="plan[work_id]" value="{{ $work_number }}" >
-                            <input type="hidden" name="plan[student_id]" value="1">
-                            <textarea name="plan[content]" placeholder="今週も頑張りましょう！"></textarea>
-                            <input type="submit" value="完了"/>
+                    <form action="/plans" method="POST">
+                        @csrf
+                        <input type="hidden" name="plan[work_id]" value="{{ $work_number }}" >
+                        <input type="hidden" name="plan[student_id]" value="1">
+                        @for($i=1; $i<=7; $i++)
+                            <input type="hidden" name="day_id[]" value="{{ $i }}">
+                            <td>
+                                <textarea name="content[]" placeholder="今週も頑張りましょう！"></textarea>
                             </td>
-        　　　　　　　　　　　　</form>
-                    @endfor
+                        @endfor
+                        <input type="submit" value="完了"/>
+    　　　　　　　　　　　　</form>
                 </tr>
             </table>
         </div>

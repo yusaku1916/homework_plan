@@ -18,6 +18,7 @@
             <div class="coment">
                 <h2>アドバイス・コメント</h2>
                 <textarea name="work[coment]" placeholder="今週も頑張りましょう！"></textarea>
+                <p class="coment__error" style="color:red">{{ $errors->first('work.coment') }}</p>
             </div>
             <div class="teacher_id">
                 <h2>teacher_id</h2>
@@ -50,49 +51,50 @@
                         <td colspan="7"><p>予定作成を促そう</p></td>
                     @else
                         <td>
-                            @if(is_null($plans1))
+                        <td>
+                            @if(is_null($plans1->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans1->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans2))
+                            @if(is_null($plans2->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans2->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans3))
+                            @if(is_null($plans3->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans3->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans4))
+                            @if(is_null($plans4->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans4->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans5))
+                            @if(is_null($plans5->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans5->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans6))
+                            @if(is_null($plans6->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans6->content }}</p>
                             @endif
                         </td>
                         <td>
-                            @if(is_null($plans7))
+                            @if(is_null($plans7->content))
                             <p>お休み</p>
                             @else
                             <p>{{ $plans7->content }}</p>

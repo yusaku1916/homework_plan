@@ -15,15 +15,21 @@
         </select-->
         <form action='/submits' method='POST' enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="student_id" value="1"/>
             <select name="D_number">
                 @foreach($days as $day)
                     <option value="{{ $day->id }}">{{ $day->day }}</option>
                 @endforeach
             </select>
-            <input type="text" name="content" placeholder="今日の学習を記録しよう！"/>
-            <input type="hidden" name="student_id" value="1"/>
-            <h2>写真でも記録しよう！</h2>
-            <input type="file" name="image"/>
+            <div>
+                <textarea name="content" placeholder="今週も頑張りましょう！">{{ old('content') }}</textarea>
+                <p style="color:red">{{ $errors->first('content') }}</p>
+            </div>
+            <div>
+                <h2>写真でも記録しよう！</h2>
+                <input type="file" name="image">
+                <p style="color:red">{{ $errors->first('image') }}</p>
+            </div>
             <input type="submit" value="完了"/>
         </form>
         <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Work;
 use App\Models\Teacher;
 use App\Models\Plan;
-//use App\Http\Requests\WorkRequest;
+use App\Http\Requests\WorkRequest;
 
 class WorkController extends Controller
 {
@@ -41,7 +41,7 @@ class WorkController extends Controller
                 ]);
     }
 
-    public function homework_store(Request $request, Work $work)
+    public function homework_store(WorkRequest $request, Work $work)
     {
         $input = $request['work'];
         $work->fill($input)->save();

@@ -6,6 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
     <body>
         <h1>宿題連絡帳</h1>
         <div class='works'>
@@ -101,4 +102,5 @@
             </button>
         </div>
     </body>
+    </x-app-layout>
 </html>

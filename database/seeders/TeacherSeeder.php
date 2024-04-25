@@ -18,7 +18,7 @@ class TeacherSeeder extends Seeder
     {
         DB::table('teachers')->insert([
             'name' => '田中太郎',
-            'passward' => '@@@@',
+            'password' => '@@@@',
             'email' => 'abc@ddd',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
@@ -26,7 +26,7 @@ class TeacherSeeder extends Seeder
             
         DB::table('teachers')->insert([
             'name' => '鈴木次郎',
-            'passward' => '1234',
+            'password' => '1234',
             'email' => 'abc@xyz',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),

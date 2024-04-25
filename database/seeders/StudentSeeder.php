@@ -18,27 +18,30 @@ class StudentSeeder extends Seeder
     {
         DB::table('students')->insert([
             'name' => 'お試し太郎',
-            'grade' => '中2',
-            'gender' => '男',
-            'teacher_id' => 1,
+            'grade' => '5',
+            'gender' => '1',
+            'password' => 'aaaa',
+            'email' => 'aaa@ddd',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
         
         DB::table('students')->insert([
             'name' => 'お試し次郎',
-            'grade' => '小2',
-            'gender' => '男',
-            'teacher_id' => 2,
+            'grade' => '1',
+            'gender' => '2',
+            'password' => 'bbbb',
+            'email' => 'bbb@ddd',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
             
         DB::table('students')->insert([
             'name' => 'お試し花子',
-            'grade' => '中1',
-            'gender' => '女',
-            'teacher_id' => 2,
+            'grade' => '3',
+            'gender' => '2',
+            'password' => 'cccc',
+            'email' => 'ccc@ddd',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);

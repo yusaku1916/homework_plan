@@ -6,6 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
     <body>
         <h1>先生ページ</h1>
         <form action="/works" method="POST">
@@ -50,7 +51,6 @@
                     @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
                         <td colspan="7"><p>予定作成を促そう</p></td>
                     @else
-                        <td>
                         <td>
                             @if(is_null($plans1->content))
                             <p>お休み</p>
@@ -105,4 +105,5 @@
             </table>
         </div>
     </body>
+    </x-app-layout>
 </html>

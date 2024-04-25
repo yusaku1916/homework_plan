@@ -6,6 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
     <body>
         <h1>今日の宿題の写真を提出しましょう！</h1>
         <!--select>
@@ -38,4 +39,5 @@
         <hr>
         
     </body>
+    </x-app-layout>
 </html>

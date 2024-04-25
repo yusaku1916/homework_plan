@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->foreignId('teacher_id')->constrained();
+            $table->integer('grade')->change();
+            $table->integer('gender')->change();
+            $table->string('password');
             //
         });
     }
@@ -27,6 +29,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
+            $table->string('grade')->change();
+            $table->string('gender')->change();
+            $table->dropColumn('passward');
             //
         });
     }

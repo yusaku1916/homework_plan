@@ -6,6 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
     <body>
         <h1>計画を立てよう！</h1>
         <div class='works'>
@@ -53,4 +54,5 @@
         <hr>
         
     </body>
+    </x-app-layout>
 </html>

@@ -12,4 +12,12 @@ class Student extends Model
         {
             return $this->hasMany(Plan::class);  
         }
+    public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
+    public function teacher_student()
+        {
+            return $this->belongsTo(Teacher_student::class);
+        }
 }

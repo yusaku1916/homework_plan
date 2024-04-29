@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->integer('grade')->change();
-            $table->string('password');
+            $table->dropColumn('password');
             //
         });
     }
@@ -28,8 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->string('grade')->change();
-            $table->dropColumn('password');
+            $table->string('password');
+            
             //
         });
     }

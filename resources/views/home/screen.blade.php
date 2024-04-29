@@ -8,21 +8,35 @@
     </head>
     <x-app-layout>
     <body>
+        
         <h1>宿題連絡帳</h1>
+        
         <div class='works'>
             <div>
                 <h2>今週の宿題</h2>
-                <p class='works_content'>{{ $works->content }}</p>
+                @if(is_null($works))
+                    <p>宿題決めよー</p>
+                @else
+                    <p class='works_content'>{{ $works->content }}</p>
+                @endif
             </div>
             <div>
                 <h2>アドバイス・コメント</h2>
-                <p　class='coment'>{{ $works->coment }}</p>
+                @if(is_null($works))
+                    <p>advice書け</p>
+                @else
+                    <p　class='coment'>{{ $works->coment }}</p>
+                @endif
             </div>
         </div>
+        
         <button type=“button” onclick="location.href='/works/create'"><!-- onclick についてわかっていない -->
             先生ページへ
         </button>
+        
         <hr>
+        
+        
         <div>
             <h2>今週の計画</h2>
             <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->

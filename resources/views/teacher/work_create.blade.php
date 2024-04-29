@@ -11,16 +11,19 @@
         <h1>先生ページ</h1>
         <form action="/works" method="POST">
             @csrf
+            
             <div class="content">
                 <h2>今週の宿題</h2>
                 <textarea name="work[content]" placeholder="今週も頑張りましょう！"></textarea>
                 <p class="content_error" style="color:red">{{ $errors->first('work.content') }}</p>
             </div>
+            
             <div class="coment">
                 <h2>アドバイス・コメント</h2>
                 <textarea name="work[coment]" placeholder="今週も頑張りましょう！"></textarea>
                 <p class="coment__error" style="color:red">{{ $errors->first('work.coment') }}</p>
             </div>
+            
             <div class="teacher_id">
                 <h2>teacher_id</h2>
                 <select name="work[teacher_id]">
@@ -29,7 +32,9 @@
                     @endforeach
                 </select>
             </div>
+            
             <input type="submit" value="完了"/>
+            
         </form>
         <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->
             戻る

@@ -31,9 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-Route::group(['middleware' => ['auth']], function(){
-    Route::get('/', [WorkController::class, 'index'])->name('screen');
-});
+//Route::group(['middleware' => ['auth']], function(){
+//});
+
+Route::get('/', [WorkController::class, 'index'])->name('screen');
 
 Route::get('/works/create', [WorkController::class, 'create']);
 

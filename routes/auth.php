@@ -12,17 +12,33 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+    Route::get('register', [RegisteredUserController::class, 'create_1'])
+                ->name('select.TorS');
+
+    Route::post('register', [RegisteredUserController::class, 'store_1'])
+                ->name('select.TorS.store');
+
     Route::get('register/1', [RegisteredUserController::class, 'create'])
-                ->name('register.1');
+                ->name('register');
 
     Route::post('register/1', [RegisteredUserController::class, 'store'])
                 ->name('register.store');
+
+    Route::get('register/teacher', [RegisteredUserController::class, 'create_teacher']);
+                //->name('register');
+
+    Route::get('register/student', [RegisteredUserController::class, 'create_student']);
+                //->name('register');
+
+    Route::post('register/teacher', [RegisteredUserController::class, 'store_teacher'])
+                ->name('store.teacher');
+
+    Route::post('register/student', [RegisteredUserController::class, 'store_student'])
+                ->name('store.student');
     
-    Route::get('register', [RegisteredUserController::class, 'create_1'])
-                ->name('register');
-
-    Route::post('register', [RegisteredUserController::class, 'store_1']);
-
+    
+    
+    
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 

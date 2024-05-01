@@ -14,7 +14,7 @@
 
         <!-- identify Id -->
         <!--div>
-            <x-input-label for="identifyId" :value="__('Teacer or Student?')" />
+            <x-input-label for="identifyId" :value= />
             <select id='identify_id' name="identify_id">
                 <option value ="1">Teacer</option>
                 <option value ="2">Student</option>

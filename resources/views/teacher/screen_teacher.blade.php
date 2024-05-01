@@ -7,37 +7,41 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <x-app-layout>
-        
     <body>
-        <h1>先生ページ</h1>
-        
-        <form action="/works" method="POST">
+        <form method="POST" action="{{ route('work.create') }}">
+            
             @csrf
             
-            <input type="hidden" name="work[teacher_student_id]" value="{{ $teacher_student_id }}"/>
-            <input type="hidden" name="student_id" value="{{ $student_id }}"/>
+            <input type="hidden" name="student_id" value="{{ $student_id }}">
             
-            <div class="content">
-                <h2>今週の宿題</h2>
-                <textarea name="work[content]" placeholder="今週も頑張りましょう！"></textarea>
-                <p class="content_error" style="color:red">{{ $errors->first('work.content') }}</p>
+            <h1>宿題連絡帳</h1>
+                
+            <div class='works'>
+                <div>
+                    <h2>今週の宿題</h2>
+                    @if(is_null($works))
+                        <p>宿題決めよー</p>
+                    @else
+                        <p class='works_content'>{{ $works->content }}</p>
+                    @endif
+                </div>
+                
+                <div>
+                    <h2>アドバイス・コメント</h2>
+                    @if(is_null($works))
+                        <p>advice書け</p>
+                    @else
+                        <p　class='coment'>{{ $works->coment }}</p>
+                    @endif
+                </div>
             </div>
             
-            <div class="coment">
-                <h2>アドバイス・コメント</h2>
-                <textarea name="work[coment]" placeholder="今週も頑張りましょう！"></textarea>
-                <p class="coment__error" style="color:red">{{ $errors->first('work.coment') }}</p>
-            </div>
-            
-            <input type="submit" value="完了"/>
+            <input type="submit" value="宿題を決める"/>
             
         </form>
         
-        <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->
-            戻る
-        </button>
-        
         <hr>
+        
         
         <div>
             <h2>今週の計画</h2>
@@ -53,7 +57,8 @@
                 </tr>
                 <tr>
                     @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
-                        <td colspan="7"><p>予定作成を促そう</p></td>
+
+                        <td colspan="7"><p>学習予定を立てよう！</p></td>
                     @else
                         <td>
                             @if(is_null($plans1->content))
@@ -107,7 +112,6 @@
                     @endif
                 </tr>
             </table>
-        </div>
     </body>
     </x-app-layout>
 </html>

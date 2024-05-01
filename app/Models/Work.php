@@ -11,7 +11,7 @@ class Work extends Model
     protected $fillable = [
         'content',
         'coment',
-        'teacher_id',
+        'teacher_student_id',
     ];
     
     //「1対多」の関係なので単数系に

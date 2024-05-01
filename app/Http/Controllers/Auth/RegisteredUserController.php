@@ -150,6 +150,7 @@ class RegisteredUserController extends Controller
         $teacher_student->save();
 
         Auth::login($user);
+        
 
         return redirect(RouteServiceProvider::HOME);
     }

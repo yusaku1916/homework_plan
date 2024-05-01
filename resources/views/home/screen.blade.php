@@ -9,49 +9,61 @@
     <x-app-layout>
     <body>
         
-        <h1>宿題連絡帳</h1>
+        @if($identify_id == 1)
         
-        <div class='works'>
-            <div>
-                <h2>今週の宿題</h2>
-                @if(is_null($works))
-                    <p>宿題決めよー</p>
-                @else
-                    <p class='works_content'>{{ $works->content }}</p>
-                @endif
+            {{ Auth::user()->identify_id }}
+            <form method="POST" action="{{ route("screen.teacher") }}">
+                @csrf
+                <h1>誰の指導をしますか</h1>
+                <select name="student_id">
+                    @foreach($students as $student)
+                        <option value="{{ $student->id }}">{{ $student->name }}</option>
+                    @endforeach
+                </select>
+                <input type="submit" value="次へ"/>
+            </form>
+            
+        @elseif($identify_id == 2)
+        
+            <h1>宿題連絡帳</h1>
+            
+            <div class='works'>
+                <div>
+                    <h2>今週の宿題</h2>
+                    @if(is_null($works))
+                        <p>宿題が出るよ</p>
+                    @else
+                        <p class='works_content'>{{ $works->content }}</p>
+                    @endif
+                </div>
+                <div>
+                    <h2>アドバイス・コメント</h2>
+                    @if(is_null($works))
+                        <p>adviceを待ちましょう</p>
+                    @else
+                        <p　class='coment'>{{ $works->coment }}</p>
+                    @endif
+                </div>
             </div>
+            
+            <hr>
+            
+            
             <div>
-                <h2>アドバイス・コメント</h2>
-                @if(is_null($works))
-                    <p>advice書け</p>
-                @else
-                    <p　class='coment'>{{ $works->coment }}</p>
-                @endif
-            </div>
-        </div>
-        
-        <button type=“button” onclick="location.href='/works/create'"><!-- onclick についてわかっていない -->
-            先生ページへ
-        </button>
-        
-        <hr>
-        
-        
-        <div>
-            <h2>今週の計画</h2>
-            <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
-                計画を立てる
-            </button>
-            <table border="1">
-                <tr>
-                    <th>日</th>
-                    <th>月</th>
-                    <th>火</th>
-                    <th>水</th>
-                    <th>木</th>
-                    <th>金</th>
-                    <th>土</th>
-                </tr>
+                <h2>今週の計画</h2>
+                <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
+                    計画を立てる
+                </button>
+                <table border="1">
+                    <tr>
+                        <th>日</th>
+                        <th>月</th>
+                        <th>火</th>
+                        <th>水</th>
+                        <th>木</th>
+                        <th>金</th>
+                        <th>土</th>
+                    </tr>
                 <tr>
                     @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
 
@@ -108,13 +120,14 @@
                         </td>
                     @endif
                 </tr>
-            </table>
-        </div><!-- 予定を立てよう -->
-        <div class="submits">
-            <button type=“button” onclick="location.href='/submits/create'">
-                提出
-            </button>
-        </div>
+                </table>
+            </div><!-- 予定を立てよう -->
+            <div class="submits">
+                <button type=“button” onclick="location.href='/submits/create'">
+                    提出
+                </button>
+            </div>
+        @endif
     </body>
     </x-app-layout>
 </html>

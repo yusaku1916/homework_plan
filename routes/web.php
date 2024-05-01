@@ -36,7 +36,11 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [WorkController::class, 'index'])->name('screen');
 
-Route::get('/works/create', [WorkController::class, 'create']);
+Route::post('/teacher/home', [WorkController::class, 'home_teacher'])->name('screen.teacher');
+
+Route::get('/teacher/home/{student_id}', [WorkController::class, 'home_teacher_return'])->name('screen.return');
+
+Route::get('/works/create', [WorkController::class, 'create'])->name('work.create');
 
 Route::post('/works', [WorkController::class, 'homework_store']);
 

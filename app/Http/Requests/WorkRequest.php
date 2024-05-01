@@ -11,6 +11,7 @@ class WorkRequest extends FormRequest
         return [
             'work.content' => 'required|string|max:200',
             'work.coment' => 'required|string|max:200',
+            'work.teacher_student_id' => 'required|integer',
         ];
     }
 }

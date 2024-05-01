@@ -6,46 +6,170 @@ use Illuminate\Http\Request;
 use App\Models\Work;
 use App\Models\Teacher;
 use App\Models\Plan;
+use App\Models\User;
+use App\Models\Student;
+use App\Models\Teacher_student;
 use App\Http\Requests\WorkRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class WorkController extends Controller
 {
-    public function index(Work $work, Plan $plan)//インポートしたPostをインスタンス化して$postとして使用。
+    public function index(Work $work, Plan $plan, Student $student)//インポートしたPostをインスタンス化して$postとして使用。
     {
-        $latestWork = Work::where('teacher_id', 1)->latest()->first();
-        return view('home.screen')
-        ->with(['works' => $latestWork,
-                'plans1' => $plan->getPlanDay(1, $latestWork->id),
-                'plans2' => $plan->getPlanDay(2, $latestWork->id),
-                'plans3' => $plan->getPlanDay(3, $latestWork->id),
-                'plans4' => $plan->getPlanDay(4, $latestWork->id),
-                'plans5' => $plan->getPlanDay(5, $latestWork->id),
-                'plans6' => $plan->getPlanDay(6, $latestWork->id),
-                'plans7' => $plan->getPlanDay(7, $latestWork->id)]);//$postの中身を戻り値にする。
-        //latest()メソッドはviewの中では使えない？からまずデータを渡してからviewに入れてる
+        if( Auth::user()->identify_id == 1 ){
+            $identify_id = Auth::user()->identify_id;
+            $student = Student::where
+            return view('home.screen')
+            ->with(['identify_id' => $identify_id,
+                    'students' => $student->get()]);
+        }
+        elseif( Auth::user()->identify_id == 2 ){
+            $student_id = Student::where('user_id', Auth::user()->id)->first();
+            $teacher_student_id = Teacher_student::where('student_id', $student_id->id)->first();
+            $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
+            $identify_id = Auth::user()->identify_id;
+            if( is_null($latestWork) ){
+                return view('home.screen')
+                ->with(['works' => $latestWork,
+                        'identify_id' => $identify_id,
+                        'plans1' => NULL,
+                        'plans2' => NULL,
+                        'plans3' => NULL,
+                        'plans4' => NULL,
+                        'plans5' => NULL,
+                        'plans6' => NULL,
+                        'plans7' => NULL]);
+            }else{
+            return view('home.screen')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id)]);
+            }
+        }
     }
     
-    public function create(Teacher $teacher, Work $work, Plan $plan)
+    public function home_teacher(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student)
+    {   
+        $student_id = $request->student_id;
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $teacher_id = $teacher->id;
+        $teacher_student_id = Teacher_student::where(['teacher_id' => $teacher_id,
+                                                      'student_id' => $student_id])->first();
+        $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
+        $identify_id = Auth::user()->identify_id;
+        if( is_null($latestWork) ){
+            return view('teacher.screen_teacher')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'student_id' => $student_id,
+                    'plans1' => NULL,
+                    'plans2' => NULL,
+                    'plans3' => NULL,
+                    'plans4' => NULL,
+                    'plans5' => NULL,
+                    'plans6' => NULL,
+                    'plans7' => NULL ]);
+        }else{
+            return view('teacher.screen_teacher')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'student_id' => $student_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id) ]);
+            }
+    }
+    
+    public function create(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student)
     {
-        $latestWork = Work::where('teacher_id', 1)->latest()->first();
-        return view('teacher.work_create')
-        ->with(['works' => $latestWork,
-                'teachers' => $teacher->get(),
-                'plans1' => $plan->getPlanDay(1, $latestWork->id),
-                'plans2' => $plan->getPlanDay(2, $latestWork->id),
-                'plans3' => $plan->getPlanDay(3, $latestWork->id),
-                'plans4' => $plan->getPlanDay(4, $latestWork->id),
-                'plans5' => $plan->getPlanDay(5, $latestWork->id),
-                'plans6' => $plan->getPlanDay(6, $latestWork->id),
-                'plans7' => $plan->getPlanDay(7, $latestWork->id)
-                ]);
+        $student_id = $request->student_id;
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $teacher_id = $teacher->id;
+        $teacher_student_id = Teacher_student::where(['teacher_id' => $teacher_id,
+                                                      'student_id' => $student_id])->first();
+        $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
+        $identify_id = Auth::user()->identify_id;
+        if( is_null($latestWork) ){
+            return view('teacher.work_create')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'teacher_student_id' => $teacher_student_id->id,
+                    'student_id' => $student_id,
+                    'plans1' => NULL,
+                    'plans2' => NULL,
+                    'plans3' => NULL,
+                    'plans4' => NULL,
+                    'plans5' => NULL,
+                    'plans6' => NULL,
+                    'plans7' => NULL]);
+        }else{
+            return view('teacher.work_create')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'teacher_student_id' => $teacher_student_id->id,
+                    'student_id' => $student_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id)]);
+        }
     }
 
     public function homework_store(WorkRequest $request, Work $work)
     {
         $input = $request['work'];
+        $student_id = $request->student_id;
         $work->fill($input)->save();
-        return redirect('/');
+        return redirect()->route('screen.return', ['student_id' => $student_id]);
+    }
+    
+    public function home_teacher_return(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student, $student_id)
+    {   
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $teacher_id = $teacher->id;
+        $teacher_student_id = Teacher_student::where(['teacher_id' => $teacher_id,
+                                                      'student_id' => $student_id])->first();
+        $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
+        $identify_id = Auth::user()->identify_id;
+        if( is_null($latestWork) ){
+            return view('teacher.screen_teacher')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'student_id' => $student_id,
+                    'plans1' => NULL,
+                    'plans2' => NULL,
+                    'plans3' => NULL,
+                    'plans4' => NULL,
+                    'plans5' => NULL,
+                    'plans6' => NULL,
+                    'plans7' => NULL ]);
+        }else{
+            return view('teacher.screen_teacher')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'student_id' => $student_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id) ]);
+            }
     }
     //
 }

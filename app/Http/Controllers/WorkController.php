@@ -15,20 +15,35 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
-    public function index(Work $work, Plan $plan, Student $student)//インポートしたPostをインスタンス化して$postとして使用。
+    public function index(Work $work, Plan $plan, Student $student, Teacher_student $teacher_student, Teacher $teacher)//インポートしたPostをインスタンス化して$postとして使用。
     {
+        $user_id = Auth::user()->id;
+        //dd($user_id);
+        $identify_id = Auth::user()->identify_id;
         if( Auth::user()->identify_id == 1 ){
-            $identify_id = Auth::user()->identify_id;
-            $student = Student::where
-            return view('home.screen')
-            ->with(['identify_id' => $identify_id,
-                    'students' => $student->get()]);
+            $teacher_id = Teacher::where('user_id', $user_id)->first()->id; //get()はダメでfirst()はいいのか。
+            //dd($teacher_id);
+            $student_id = Teacher_student::where('teacher_id', $teacher_id)->pluck('student_id'); //pluckの使い方
+            //dd($student_id);
+            if ($student_id->count() == 0){ //pluckメソッドを使うとNULLにならず空の配列が返される。そのためーー。
+                //return view('home.screen')->with('identify_id', $identify_id);
+                return view('home.screen')
+                ->with(['identify_id' => $identify_id,
+                        'students' => null]);
+            }
+            else{
+                //dd($student_id);
+                $student = Student::whereIn('id', $student_id)->get(); //whereInの使い方
+                return view('home.screen')
+                ->with(['identify_id' => $identify_id,
+                        'students' => $student]);
+            }
         }
         elseif( Auth::user()->identify_id == 2 ){
-            $student_id = Student::where('user_id', Auth::user()->id)->first();
+            $student_id = Student::where('user_id', $user_id)->first();
             $teacher_student_id = Teacher_student::where('student_id', $student_id->id)->first();
             $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
-            $identify_id = Auth::user()->identify_id;
+            //$identify_id = Auth::user()->identify_id;
             if( is_null($latestWork) ){
                 return view('home.screen')
                 ->with(['works' => $latestWork,

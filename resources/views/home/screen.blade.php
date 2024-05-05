@@ -5,31 +5,34 @@
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/screen.css') }}">
     </head>
     <x-app-layout>
     <body>
         
         @if($identify_id == 1)
-        
-            {{ Auth::user()->identify_id }}
-            <form method="POST" action="{{ route("screen.teacher") }}">
-                @csrf
-                <h1>誰の指導をしますか</h1>
-                <select name="student_id">
-                    @foreach($students as $student)
-                        <option value="{{ $student->id }}">{{ $student->name }}</option>
-                    @endforeach
-                </select>
-                <input type="submit" value="次へ"/>
-            </form>
+            @if(is_null($students))
+                <p id="no_student">生徒の登録を待とう！</p>
+            @else
+                <form method="POST" action="{{ route("screen.teacher") }}">
+                    @csrf
+                    <h1>誰の指導をしますか</h1>
+                    <select name="student_id">
+                        @foreach($students as $student)
+                            <option value="{{ $student->id }}">{{ $student->name }}</option>
+                        @endforeach
+                    </select>
+                    <input type="submit" value="次へ"/>
+                </form>
+            @endif
             
         @elseif($identify_id == 2)
         
-            <h1>宿題連絡帳</h1>
+            <h1 class="HEAD">宿題連絡帳</h1>
             
             <div class='works'>
                 <div>
-                    <h2>今週の宿題</h2>
+                    <h2 class="headline">今週の宿題</h2>
                     @if(is_null($works))
                         <p>宿題が出るよ</p>
                     @else
@@ -37,7 +40,7 @@
                     @endif
                 </div>
                 <div>
-                    <h2>アドバイス・コメント</h2>
+                    <h2 class="headline">アドバイス・コメント</h2>
                     @if(is_null($works))
                         <p>adviceを待ちましょう</p>
                     @else
@@ -50,7 +53,7 @@
             
             
             <div>
-                <h2>今週の計画</h2>
+                <h2 class="headline">今週の計画</h2>
                 <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
                     計画を立てる
                 </button>

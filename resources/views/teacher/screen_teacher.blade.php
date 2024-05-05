@@ -5,20 +5,21 @@
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/screen_teacher.css') }}">
     </head>
     <x-app-layout>
     <body>
+        <h1 class="HEAD">宿題連絡帳</h1>
         <form method="POST" action="{{ route('work.create') }}">
             
             @csrf
             
             <input type="hidden" name="student_id" value="{{ $student_id }}">
-            
-            <h1>宿題連絡帳</h1>
                 
-            <div class='works'>
-                <div>
-                    <h2>今週の宿題</h2>
+            <div class='teacher'>
+                
+                <div class="work">
+                    <h2 class="headline">今週の宿題</h2>
                     @if(is_null($works))
                         <p>宿題決めよー</p>
                     @else
@@ -26,26 +27,26 @@
                     @endif
                 </div>
                 
-                <div>
-                    <h2>アドバイス・コメント</h2>
+                <divclass="advice">
+                    <h2 class="headline">アドバイス・コメント</h2>
                     @if(is_null($works))
                         <p>advice書け</p>
                     @else
                         <p　class='coment'>{{ $works->coment }}</p>
                     @endif
                 </div>
-            </div>
             
-            <input type="submit" value="宿題を決める"/>
+                <input type="submit" value="宿題を決める"/>
+                
+            </div>
             
         </form>
         
         <hr>
         
-        
-        <div>
-            <h2>今週の計画</h2>
-            <table border="1">
+        <div class="plans">
+            <h2 class="headline">今週の計画</h2>
+            <table border="2">
                 <tr>
                     <th>日</th>
                     <th>月</th>

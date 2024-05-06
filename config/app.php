@@ -211,5 +211,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+    
+    CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
+    //Cloudinary追加
 
 ];

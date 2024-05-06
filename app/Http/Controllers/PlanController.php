@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\Teacher;
 use App\Models\Work;
+use App\Models\Student;
+use App\Models\Teacher_student;
+use Illuminate\Support\Facades\Auth;
 
 class PlanController extends Controller
 {
     public function plan_create(Teacher $teacher)
     {
-        $latestWork = Work::where('teacher_id', 1)->latest()->first();
+        $user_id = Auth::user()->id;
+        $student_id = Student::where('user_id', $user_id)->first()->id;
+        $teacher_student_id = Teacher_student::where('student_id', $student_id)->first()->id;
+        $latestWork = Work::where('teacher_student_id', $teacher_student_id)->latest()->first();
         return view('student.plan_create')
         ->with(['works' => $latestWork,
                 'work_number' => $latestWork->id]);
@@ -27,7 +33,7 @@ class PlanController extends Controller
             $plan->content = $request->content[$i];
             $plan->save();
         }
-        return redirect('/plans/create');
+        return redirect(route('screen'));
         
         
     }

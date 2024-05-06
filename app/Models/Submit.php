@@ -17,4 +17,11 @@ class Submit extends Model
         {
             return $this->belongsTo(Student::class);
         }
+
+        
+    public function getSubmitDay(int $plan_number)
+        {
+            return $this->latest()
+            ->firstWhere(['plan_id'=>$plan_number]);
+        }
 }

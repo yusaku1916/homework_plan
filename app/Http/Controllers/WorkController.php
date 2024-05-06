@@ -9,6 +9,7 @@ use App\Models\Plan;
 use App\Models\User;
 use App\Models\Student;
 use App\Models\Teacher_student;
+use App\Models\Submit;
 use App\Http\Requests\WorkRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,9 +41,9 @@ class WorkController extends Controller
             }
         }
         elseif( Auth::user()->identify_id == 2 ){
-            $student_id = Student::where('user_id', $user_id)->first();
-            $teacher_student_id = Teacher_student::where('student_id', $student_id->id)->first();
-            $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
+            $student_id = Student::where('user_id', $user_id)->first()->id;
+            $teacher_student_id = Teacher_student::where('student_id', $student_id)->first()->id;
+            $latestWork = Work::where('teacher_student_id', $teacher_student_id)->latest()->first();
             //$identify_id = Auth::user()->identify_id;
             if( is_null($latestWork) ){
                 return view('home.screen')
@@ -70,15 +71,15 @@ class WorkController extends Controller
         }
     }
     
-    public function home_teacher(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student)
+    public function home_teacher(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student, Submit $submit)
     {   
         $student_id = $request->student_id;
-        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
-        $teacher_id = $teacher->id;
+        $identify_id = Auth::user()->identify_id;
+        $teacher_id = Teacher::where('user_id', Auth::user()->id)->first()->id;
+        //$teacher_id = $teacher->id;
         $teacher_student_id = Teacher_student::where(['teacher_id' => $teacher_id,
                                                       'student_id' => $student_id])->first();
         $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
-        $identify_id = Auth::user()->identify_id;
         if( is_null($latestWork) ){
             return view('teacher.screen_teacher')
             ->with(['works' => $latestWork,
@@ -90,7 +91,14 @@ class WorkController extends Controller
                     'plans4' => NULL,
                     'plans5' => NULL,
                     'plans6' => NULL,
-                    'plans7' => NULL ]);
+                    'plans7' => NULL,
+                    'submits1' => NULL,
+                    'submits2' => NULL,
+                    'submits3' => NULL,
+                    'submits4' => NULL,
+                    'submits5' => NULL,
+                    'submits6' => NULL,
+                    'submits7' => NULL]);
         }else{
             return view('teacher.screen_teacher')
             ->with(['works' => $latestWork,
@@ -102,7 +110,14 @@ class WorkController extends Controller
                     'plans4' => $plan->getPlanDay(4, $latestWork->id),
                     'plans5' => $plan->getPlanDay(5, $latestWork->id),
                     'plans6' => $plan->getPlanDay(6, $latestWork->id),
-                    'plans7' => $plan->getPlanDay(7, $latestWork->id) ]);
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id),
+                    'submits1' => $submit->getSubmitDay($plan->getPlanDay(1, $latestWork->id)->id),
+                    'submits2' => $submit->getSubmitDay($plan->getPlanDay(2, $latestWork->id)->id),
+                    'submits3' => $submit->getSubmitDay($plan->getPlanDay(3, $latestWork->id)->id),
+                    'submits4' => $submit->getSubmitDay($plan->getPlanDay(4, $latestWork->id)->id),
+                    'submits5' => $submit->getSubmitDay($plan->getPlanDay(5, $latestWork->id)->id),
+                    'submits6' => $submit->getSubmitDay($plan->getPlanDay(6, $latestWork->id)->id),
+                    'submits7' => $submit->getSubmitDay($plan->getPlanDay(7, $latestWork->id)->id) ]);
             }
     }
     

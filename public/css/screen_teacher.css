@@ -5,16 +5,87 @@
 
 .headline{
     font-size: 25px;
-}
-
-.work{
-    
-}
-
-.advice{
-    
-}
-
-.plans{
     text-align: center;
+}
+
+#teacher{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#work{
+    position: relative;
+    width: 500px;
+    height: 150px;
+    background-color: lightgreen;
+    text-align: center;
+}
+
+#teacher_buttun{
+    
+}
+
+.work_content {
+    background: darkgreen; /* 背景色 */
+    border-radius: 30px; /* 丸枠 */
+    width: 400px; /* 幅 */
+    height: 100px; /* 高さ */
+    color: white; /* 文字色 */
+    /*font-size: 52px;  フォントサイズ */
+    text-align: center; /* 水平方向の中央揃え */
+    line-height: 80px; /* 垂直方向の中央揃え */
+    margin: 0 auto;
+}
+
+.work_coment {
+    background: darkblue; /* 背景色 */
+    border-radius: 30px; /* 丸枠 */
+    width: 400px; /* 幅 */
+    height: 100px; /* 高さ */
+    color: white; /* 文字色 */
+    /*font-size: 52px;  フォントサイズ */
+    text-align: center; /* 水平方向の中央揃え */
+    line-height: 80px; /* 垂直方向の中央揃え */
+    margin: 0 auto;
+}
+
+#advice{
+    position: relative;
+    width: 500px;
+    height: 150px;
+    background-color: lightgreen;
+    text-align: center;
+}
+
+#plans{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 150px;
+    background-color: lightgreen;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h2{
+    background-color: lightblue;
+}
+
+p{
+    font-size: 20px;
+}
+
+table, th, td {
+    background: white; /* 背景色 */
+    border: 1px solid black;
+}
+
+hr {
+    margin: 20px 0;
+    border: solid 1px black;
+    }
+    
+body{
+    background-color: black;
 }

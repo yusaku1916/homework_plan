@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('submits', function (Blueprint $table) {
             $table->id();
             $table->string('content', 200);
+            $table->string('image_id', 200);
             $table->foreignId('plan_id')->constrained();
             $table->foreignId('student_id')->constrained();
             $table->timestamps();

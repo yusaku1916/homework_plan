@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/screen_teacher.css') }}">
     </head>
-    <x-app-layout>
+    <!--x-app-layout-->
     <body>
         <h1 class="HEAD">宿題連絡帳</h1>
         <form method="POST" action="{{ route('work.create') }}">
@@ -211,5 +211,5 @@
             </table>
             
     </body>
-    </x-app-layout>
+    <!--/x-app-layout-->
 </html>

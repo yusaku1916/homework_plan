@@ -31,27 +31,30 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-//Route::group(['middleware' => ['auth']], function(){
-//});
-
-Route::get('/', [WorkController::class, 'index'])->name('screen');
-
-Route::post('/teacher/home', [WorkController::class, 'home_teacher'])->name('screen.teacher');
-
-Route::get('/teacher/home/{student_id}', [WorkController::class, 'home_teacher_return'])->name('screen.return');
-
-Route::post('/works/create', [WorkController::class, 'create'])->name('work.create');
-
-Route::post('/works', [WorkController::class, 'homework_store']);
-
-Route::get('/plans/create', [PlanController::class, 'plan_create']);
-
-Route::post('/plans', [PlanController::class, 'plan_store']);
-
-Route::get('/submits/create', [SubmitController::class, 'submit_create']);
-
-Route::post('/submits', [SubmitController::class, 'submit_store']);
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/', [WorkController::class, 'index'])->name('screen');
     
+    Route::post('/teacher/home', [WorkController::class, 'home_teacher'])->name('screen.teacher');
+    
+    Route::get('/teacher/home/{student_id}', [WorkController::class, 'home_teacher_return'])->name('screen.return');
+    
+    Route::post('/works/create', [WorkController::class, 'create'])->name('work.create');
+    
+    Route::post('/works', [WorkController::class, 'homework_store']);
+    
+    Route::get('/plans/create', [PlanController::class, 'plan_create']);
+    
+    Route::post('/plans', [PlanController::class, 'plan_store']);
+    
+    Route::get('/submits/create', [SubmitController::class, 'submit_create']);
+    
+    Route::post('/submits', [SubmitController::class, 'submit_store']);
+});
+
+
+//Route::get('/', [WorkController::class, 'start'])->name('start');
+
+        
 });
 
 require __DIR__.'/auth.php';

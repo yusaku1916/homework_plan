@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
+    public function start()
+    {
+        return view('home.start');
+    }
+    
     public function index(Work $work, Plan $plan, Student $student, Teacher_student $teacher_student, Teacher $teacher)//インポートしたPostをインスタンス化して$postとして使用。
     {
         $user_id = Auth::user()->id;

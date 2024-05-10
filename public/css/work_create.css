@@ -9,31 +9,19 @@
     text-align: center;
 }
 
-
-#body1{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-}
-
 #logout{
     margin: auto;
+    font-size: 20px;
 }
-
-#student_select{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 500px;
-    background-color: red;
-}
-
-.student_select_1{
-    margin: 20px auto;
-}
-
 
 #teacher{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#work_input{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,23 +65,12 @@
     line-height: 100px; /* 垂直方向の中央揃え */
     margin: auto;
 }
-#plans{
-    display: flex;
-    flex-direction: column;
-    width: 1700px;
-    height: 150px;
-    background-color: lightgreen;
-    text-align: center;
-    margin: 0 auto;
-}
 
-#submit_status{
-    height: 20%;
-}
-
-.column1{
-    width: 9%;
-    font-size: 30px;
+#work_store{
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    margin: 10px;
 }
 
 .HEAD{
@@ -107,6 +84,11 @@
 }
 
 h2{
+    font-size: 60px;
+    text-align: center;
+}
+
+h2,h3{
     background-color: lightblue;
 }
 
@@ -114,39 +96,19 @@ p{
     font-size: 40px;
 }
 
-table, th, td {
-    table-layout: fixed;
-    background: white; /* 背景色 */
-    border: 1px solid black;
-}
-
-th{
-    font-size: 30px;
-}
-
-hr {
-    margin: 20px 0;
-    border: solid 1px black;
-    }
-    
 body{
     background-color: #A8E3FF;
 }
 
 button{
-    background-color: darkgrey;
-    border:black;
-    color: white;/*何の色だ*/
-}
-
-option{
-    text-align: center;
-}
-
-select{
-    background-color: white;
-    color: black;
-    width: 100%;
+    width: 150px;
     height: 50px;
+    font-size: 25px;
+    background-color: white;
+    border:black;
+    color: black;/*何の色だ*/
 }
 
+textarea{
+    font-size: 40px;
+}

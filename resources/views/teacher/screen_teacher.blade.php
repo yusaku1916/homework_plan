@@ -47,9 +47,10 @@
         
         <div id="plans">
             <h2 class="headline">今週の計画</h2>
-            <table border="2">
+            <table border="1">
                 
                 <tr>
+                    <th class="column1"></th>
                     <th>日</th>
                     <th>月</th>
                     <th>火</th>
@@ -62,8 +63,10 @@
                 <tr>
                     @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
 
-                        <td colspan="7"><p>学習予定を立てよう！</p></td>
+                        <td class="column1">計画</td>            
+                        <td colspan="7"><p>計画を促そう！</p></td>
                     @else
+                        <td class="column1">計画</td>
                         <td>
                             @if(is_null($plans1->content))
                             <p>お休み</p>
@@ -116,53 +119,8 @@
                     @endif
                 </tr>
                 
-                <tr>
-                    <td>
-                        @if(is_null($submits1))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits1->content }}</p>
-                        @endif
-                    </td>
-                    <td>
-                        @if(is_null($submits2))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits3->content }}</p>
-                        @endif
-                    <td>
-                        @if(is_null($submits3))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits3->content }}</p>
-                        @endif
-                    <td>
-                        @if(is_null($submits4))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits4->content }}</p>
-                        @endif
-                    <td>
-                        @if(is_null($submits5))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits5->content }}</p>
-                        @endif
-                    <td>
-                        @if(is_null($submits6))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits6->content }}</p>
-                        @endif
-                    <td>
-                        @if(is_null($submits7))
-                        <p>お休み</p>
-                        @else
-                        <p>{{ $submits7->content }}</p>
-                        @endif
-                </tr>
-                
-                <tr>
+                <tr id="submit_status">
+                    <td class="column1">status</td>
                     <td>
                         @if(is_null($submits1))
                         <p>提出なし</p>
@@ -208,7 +166,66 @@
                         @endif
                 </tr>
                 
+                <tr>
+                    <td class="column1">提出内容</td>
+                    <td>
+                        @if(is_null($submits1))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits1->content }}</p>
+                        @endif
+                    </td>
+                    <td>
+                        @if(is_null($submits2))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits3->content }}</p>
+                        @endif
+                    <td>
+                        @if(is_null($submits3))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits3->content }}</p>
+                        @endif
+                    <td>
+                        @if(is_null($submits4))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits4->content }}</p>
+                        @endif
+                    <td>
+                        @if(is_null($submits5))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits5->content }}</p>
+                        @endif
+                    <td>
+                        @if(is_null($submits6))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits6->content }}</p>
+                        @endif
+                    <td>
+                        @if(is_null($submits7))
+                        <p>お休み</p>
+                        @else
+                        <p>{{ $submits7->content }}</p>
+                        @endif
+                </tr>
+                
+                
+                
             </table>
+            
+            <form id="logout" method="POST" action="{{ route('logout') }}">
+                @csrf
+    
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
             
     </body>
     <!--/x-app-layout-->

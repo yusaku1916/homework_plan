@@ -1,10 +1,10 @@
 #HEAD{
-    font-size: 40px;
+    font-size: 80px;
     text-align: center;
 }
 
 .headline{
-    font-size: 25px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -15,9 +15,7 @@
 }
 
 #work{
-    position: relative;
-    width: 500px;
-    height: 150px;
+    width: 850px;
     background-color: lightgreen;
     text-align: center;
 }
@@ -47,9 +45,7 @@
 }
 
 #advice{
-    position: relative;
-    width: 500px;
-    height: 150px;
+    width: 850px;
     background-color: lightgreen;
     text-align: center;
 }
@@ -57,11 +53,15 @@
 #plans{
     display: flex;
     flex-direction: column;
-    width: 1000px;
-    height: 300px;
+    width: 1700px;
     background-color: lightgreen;
     text-align: center;
-    margin: 0 auto;
+    margin: auto;
+}
+
+#submit{
+    width: 100px;
+    font-size: 25px;
 }
 
 h2{
@@ -75,11 +75,24 @@ p{
 table, th, tr {
     background: white; /* 背景色 */
     /*border: 1px solid black;*/
-    width: 800px;
+    margin: auto;
+}
+
+table{
+    height: 300px;
 }
 
 th{
     width: 10px;
+    height: 50px;
+}
+
+td{
+    height: 250px;
+}
+
+p{
+    font-size: 40px;
 }
 
 hr {
@@ -88,7 +101,7 @@ hr {
     }
     
 body{
-    background-color: red;
+    background-color: #A8E3FF;
 }
 
 button{
@@ -97,5 +110,7 @@ button{
 }
 
 .test{
-    max-width: 130px;
+    max-width: 200px;
+    font-size: 30px;
+    height: 240px;
 }

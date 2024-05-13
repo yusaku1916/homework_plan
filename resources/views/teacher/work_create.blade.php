@@ -6,6 +6,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/work_create.css') }}">
+        <script type="text/javascript" src="/resources/js/work_store.js"></script>
     </head>
     <body>
         
@@ -22,14 +23,14 @@
                 
                 <div id="work">
                     <h3 class="headline">今週の宿題</h3>
-                    <textarea class="work_content" name="work[content]" placeholder="新たな宿題"></textarea>
-                    <p class="content_error" style="color:red">{{ $errors->first('work.content') }}</p>
+                    <textarea id="work_content" name="work[content]" placeholder="新たな宿題"></textarea>
+                    <p class="content_error" style="color:red">{{ $errors->first() }}</p>
                 </div>
                 
                 <div id="advice">
                     <h3 class="headline">アドバイス・コメント</h3>
-                    <textarea class="work_coment" name="work[coment]" placeholder="コメントやアドバイス"></textarea>
-                    <p class="coment__error" style="color:red">{{ $errors->first('work.coment') }}</p>
+                    <textarea id="work_coment" name="work[coment]" placeholder="コメントやアドバイス"></textarea>
+                    <p class="coment__error" style="color:red">{{ $errors->first() }}</p>
                 </div>
             </div>
             

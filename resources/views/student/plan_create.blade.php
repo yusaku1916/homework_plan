@@ -26,8 +26,10 @@
         </div>
         
         <hr>
-            <div id="plans">
-                <h2 class="headline">今週の計画</h2>
+        
+        <div id="plans">
+            <h2 class="headline">今週の計画</h2>
+            <form action="/plans" method="POST">
                 <table border="2">
                     <tr>
                         <th>日</th>
@@ -39,21 +41,20 @@
                         <th>土</th>
                     </tr>
                     <tr>
-                        <form action="/plans" method="POST">
-                            @csrf
-                            <input type="hidden" name="plan[work_id]" value="{{ $work_number }}" >
-                            <input type="hidden" name="plan[student_id]" value="1">
-                            @for($i=1; $i<=7; $i++)
-                                <input type="hidden" name="day_id[]" value="{{ $i }}">
-                                <td class="test">
-                                    <textarea class="test" name="content[]" placeholder="今週も頑張りましょう！"></textarea>
-                                </td>
-                            @endfor
-                            <input type="submit" value="完了"/>
-        　　　　　　　　　　　　</form>
+                        @csrf
+                        <input type="hidden" name="plan[work_id]" value="{{ $work_number }}" >
+                        <input type="hidden" name="plan[student_id]" value="1">
+                        @for($i=1; $i<=7; $i++)
+                            <input type="hidden" name="day_id[]" value="{{ $i }}">
+                            <td>
+                                <textarea class="test" name="content[]" placeholder="今週も頑張りましょう！"></textarea>
+                            </td>
+                        @endfor
                     </tr>
                 </table>
-            </div>
+                <input id="submit" type="submit" value="完了"/>
+    　　　　　　</form>
+        </div>
             
         <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->
             戻る

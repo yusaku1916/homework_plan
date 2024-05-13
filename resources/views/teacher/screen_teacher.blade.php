@@ -9,9 +9,10 @@
     </head>
     <!--x-app-layout-->
     <body>
-        <h1 class="HEAD">宿題連絡帳</h1>
+        <div id="body1">
+            <h1 class="HEAD">宿題連絡帳</h1>
+        
         <form method="POST" action="{{ route('work.create') }}">
-            
             @csrf
             
             <input type="hidden" name="student_id" value="{{ $student_id }}">
@@ -217,15 +218,19 @@
                 
             </table>
             
-            <form id="logout" method="POST" action="{{ route('logout') }}">
-                @csrf
-    
-                <x-dropdown-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                    {{ __('Log Out') }}
-                </x-dropdown-link>
-            </form>
+        </div>
+        </div>
+        
+        
+        <form id="logout" method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <x-dropdown-link :href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </x-dropdown-link>
+        </form>
             
     </body>
     <!--/x-app-layout-->

@@ -12,6 +12,7 @@ use App\Models\Teacher_student;
 use App\Models\Submit;
 use App\Http\Requests\WorkRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 class WorkController extends Controller
@@ -104,6 +105,25 @@ class WorkController extends Controller
                     'submits5' => NULL,
                     'submits6' => NULL,
                     'submits7' => NULL]);
+        }elseif(is_null( $plan->getPlanDay(1, $latestWork->id))){
+            return view('teacher.screen_teacher')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'student_id' => $student_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id),
+                    'submits1' => $plan->getPlanDay(1, $latestWork->id),
+                    'submits2' => NULL,
+                    'submits3' => NULL,
+                    'submits4' => NULL,
+                    'submits5' => NULL,
+                    'submits6' => NULL,
+                    'submits7' => NULL]);
         }else{
             return view('teacher.screen_teacher')
             ->with(['works' => $latestWork,
@@ -163,13 +183,67 @@ class WorkController extends Controller
                     'plans7' => $plan->getPlanDay(7, $latestWork->id)]);
         }
     }
-
-    public function homework_store(WorkRequest $request, Work $work)
+    
+    public function create_return(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student)
     {
-        $input = $request['work'];
         $student_id = $request->student_id;
-        $work->fill($input)->save();
-        return redirect()->route('screen.return', ['student_id' => $student_id]);
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $teacher_id = $teacher->id;
+        $teacher_student_id = Teacher_student::where(['teacher_id' => $teacher_id,
+                                                      'student_id' => $student_id])->first();
+        $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
+        $identify_id = Auth::user()->identify_id;
+        if( is_null($latestWork) ){
+            return view('teacher.work_create')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'teacher_student_id' => $teacher_student_id->id,
+                    'student_id' => $student_id,
+                    'plans1' => NULL,
+                    'plans2' => NULL,
+                    'plans3' => NULL,
+                    'plans4' => NULL,
+                    'plans5' => NULL,
+                    'plans6' => NULL,
+                    'plans7' => NULL]);
+        }else{
+            return view('teacher.work_create')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'teacher_student_id' => $teacher_student_id->id,
+                    'student_id' => $student_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id)]);
+        }
+    }
+
+    public function homework_store(Request $request, Work $work)
+    {
+        $student_id = $request->student_id;
+        /*$validator = $request->getValidatorInstance();
+        if ($validator->fails()) {
+            return redirect()->route('work.create', ['student_id' => $student_id]);
+        }*/
+        $input = $request['work'];
+        $work->fill($input);
+        $validator = Validator::make($request->all(), [
+            'work.content' => ['required', 'string', 'max:200'],
+            'work.coment' => ['required', 'string', 'max:200'],
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->route('work.create.return', ['student_id' => $student_id])
+                   ->withErrors(['error' => '不正な操作です。']);
+        }else{
+            //$student_id = $request->student_id;
+            $work->save();
+            return redirect()->route('screen.return', ['student_id' => $student_id]);
+        }
     }
     
     public function home_teacher_return(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student, $student_id)
@@ -191,7 +265,33 @@ class WorkController extends Controller
                     'plans4' => NULL,
                     'plans5' => NULL,
                     'plans6' => NULL,
-                    'plans7' => NULL ]);
+                    'plans7' => NULL,
+                    'submits1' => NULL,
+                    'submits2' => NULL,
+                    'submits3' => NULL,
+                    'submits4' => NULL,
+                    'submits5' => NULL,
+                    'submits6' => NULL,
+                    'submits7' => NULL]);
+        }elseif(is_null( $plan->getPlanDay(1, $latestWork->id))){
+            return view('teacher.screen_teacher')
+            ->with(['works' => $latestWork,
+                    'identify_id' => $identify_id,
+                    'student_id' => $student_id,
+                    'plans1' => $plan->getPlanDay(1, $latestWork->id),
+                    'plans2' => $plan->getPlanDay(2, $latestWork->id),
+                    'plans3' => $plan->getPlanDay(3, $latestWork->id),
+                    'plans4' => $plan->getPlanDay(4, $latestWork->id),
+                    'plans5' => $plan->getPlanDay(5, $latestWork->id),
+                    'plans6' => $plan->getPlanDay(6, $latestWork->id),
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id),
+                    'submits1' => $plan->getPlanDay(1, $latestWork->id),
+                    'submits2' => NULL,
+                    'submits3' => NULL,
+                    'submits4' => NULL,
+                    'submits5' => NULL,
+                    'submits6' => NULL,
+                    'submits7' => NULL]);
         }else{
             return view('teacher.screen_teacher')
             ->with(['works' => $latestWork,
@@ -203,7 +303,14 @@ class WorkController extends Controller
                     'plans4' => $plan->getPlanDay(4, $latestWork->id),
                     'plans5' => $plan->getPlanDay(5, $latestWork->id),
                     'plans6' => $plan->getPlanDay(6, $latestWork->id),
-                    'plans7' => $plan->getPlanDay(7, $latestWork->id) ]);
+                    'plans7' => $plan->getPlanDay(7, $latestWork->id),
+                    'submits1' => $submit->getSubmitDay($plan->getPlanDay(1, $latestWork->id)->id),
+                    'submits2' => $submit->getSubmitDay($plan->getPlanDay(2, $latestWork->id)->id),
+                    'submits3' => $submit->getSubmitDay($plan->getPlanDay(3, $latestWork->id)->id),
+                    'submits4' => $submit->getSubmitDay($plan->getPlanDay(4, $latestWork->id)->id),
+                    'submits5' => $submit->getSubmitDay($plan->getPlanDay(5, $latestWork->id)->id),
+                    'submits6' => $submit->getSubmitDay($plan->getPlanDay(6, $latestWork->id)->id),
+                    'submits7' => $submit->getSubmitDay($plan->getPlanDay(7, $latestWork->id)->id) ]);
             }
     }
     //

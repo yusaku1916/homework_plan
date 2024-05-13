@@ -1,9 +1,4 @@
 /* #id .class */
-#body{
-    display: flex;
-    flex-direction: column;
-}
-
 #no_student{
     font-size: 20px;
     text-align: center;
@@ -13,10 +8,7 @@
 #body1{
     display: flex;
     flex-direction: column;
-    margin: auto;
-}
-
-#logout{
+    
     margin: auto;
 }
 
@@ -91,6 +83,11 @@
     height: 20%;
 }
 
+#logout{
+    position: fixed;
+    bottom: 0;
+}
+
 .column1{
     width: 9%;
     font-size: 30px;
@@ -134,9 +131,10 @@ body{
 }
 
 button{
-    background-color: darkgrey;
+    background-color: white;
     border:black;
-    color: white;/*何の色だ*/
+    color: black;/*何の色だ*/
+    width: 100px;
 }
 
 option{

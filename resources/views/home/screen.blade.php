@@ -68,7 +68,7 @@
                 
                 <div id='plans'>
                     <h2 class="headline">今週の計画</h2>
-                    <button type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
+                    <button id="plan_button" type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
                         計画を立てる
                     </button>
                     
@@ -147,7 +147,7 @@
                     </div>
                     @endif
                     
-                </div><!-- 予定を立てよう -->
+                </div>
             @endif
         </div>
         
@@ -160,6 +160,7 @@
                                 this.closest('form').submit();">
                 {{ __('Log Out') }}
             </x-dropdown-link>
+            
         </form>
 
     </body>

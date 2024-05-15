@@ -4,14 +4,8 @@
     flex-direction: column;
 }
 
-#no_student{
-    font-size: 20px;
-    text-align: center;
-}
-
 #logout{
     margin: auto;
-    font-size: 20px;
 }
 
 #teacher{
@@ -28,7 +22,7 @@
 }
 
 #work{
-    width: 850px;
+    width: 510px;
     background-color: lightgreen;
     text-align: center;
 }
@@ -38,7 +32,7 @@
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
     width: 90%; /* 幅 */
-    height: 300px; /* 高さ */
+    height: 180px; /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
@@ -47,7 +41,7 @@
 }
 
 #advice{
-    width: 850px;
+    width: 510px;
     background-color: lightgreen;
     text-align: center;
 }
@@ -58,7 +52,7 @@
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
     width: 90%; /* 幅 */
-    height: 300px; /* 高さ */
+    height: 180px; /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
@@ -67,24 +61,24 @@
 }
 
 #work_store{
-    width: 150px;
-    height: 50px;
-    font-size: 25px;
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
     margin: 10px;
 }
 
 .HEAD{
-    font-size: 80px;
+    font-size: 64px;
     text-align: center;
 }
 
 .headline{
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
 }
 
 h2{
-    font-size: 60px;
+    font-size: 36px;
     text-align: center;
 }
 
@@ -93,7 +87,7 @@ h2,h3{
 }
 
 p{
-    font-size: 40px;
+    font-size: 24px;
 }
 
 body{
@@ -101,14 +95,14 @@ body{
 }
 
 button{
-    width: 150px;
-    height: 50px;
-    font-size: 25px;
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
     background-color: white;
     border:black;
     color: black;/*何の色だ*/
 }
 
 textarea{
-    font-size: 40px;
+    font-size: 24px;
 }

@@ -1,6 +1,6 @@
 /* #id .class */
 #no_student{
-    font-size: 20px;
+    font-size: 12px;
     text-align: center;
 }
 
@@ -16,12 +16,12 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 500px;
+    width: 300px;
     background-color: red;
 }
 
 .student_select_1{
-    margin: 20px auto;
+    margin: 12px auto;
 }
 
 
@@ -32,7 +32,7 @@
 }
 
 #work{
-    width: 850px;
+    width: 510px;
     background-color: lightgreen;
     text-align: center;
 }
@@ -42,7 +42,7 @@
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
     width: 90%; /* 幅 */
-    height: 300px; /* 高さ */
+    height: 180px; /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
@@ -51,7 +51,7 @@
 }
 
 #advice{
-    width: 850px;
+    width: 510px;
     background-color: lightgreen;
     text-align: center;
 }
@@ -62,7 +62,7 @@
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
     width: 90%; /* 幅 */
-    height: 300px; /* 高さ */
+    height: 180px; /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
@@ -72,11 +72,16 @@
 #plans{
     display: flex;
     flex-direction: column;
-    width: 1700px;
-    height: 150px;
+    width: 1020px;
+    height: 90px;
     background-color: lightgreen;
     text-align: center;
-    margin: 0 auto;
+    margin: auto;
+}
+
+#plan_button{
+    width: 150px;
+    margin: auto;
 }
 
 #submit_status{
@@ -90,16 +95,16 @@
 
 .column1{
     width: 9%;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .HEAD{
-    font-size: 80px;
+    font-size: 64px;
     text-align: center;
 }
 
 .headline{
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
 }
 
@@ -108,7 +113,7 @@ h2{
 }
 
 p{
-    font-size: 40px;
+    font-size: 24px;
 }
 
 table, th, td {
@@ -118,11 +123,11 @@ table, th, td {
 }
 
 th{
-    font-size: 30px;
+    font-size: 18px;
 }
 
 hr {
-    margin: 20px 0;
+    margin: 12px 0;
     border: solid 1px black;
     }
     
@@ -134,7 +139,7 @@ button{
     background-color: white;
     border:black;
     color: black;/*何の色だ*/
-    width: 100px;
+    width: 60px;
 }
 
 option{
@@ -145,6 +150,6 @@ select{
     background-color: white;
     color: black;
     width: 100%;
-    height: 50px;
+    height: 30px;
 }
 

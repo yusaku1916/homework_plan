@@ -80,11 +80,14 @@ class WorkController extends Controller
     public function home_teacher(Request $request, Work $work, Plan $plan, User $user, Teacher $teacer, Teacher_student $teacher_student, Submit $submit)
     {   
         $student_id = $request->student_id;
+        // dd($student_id);
         $identify_id = Auth::user()->identify_id;
         $teacher_id = Teacher::where('user_id', Auth::user()->id)->first()->id;
+        // dd($teacher_id);
         //$teacher_id = $teacher->id;
         $teacher_student_id = Teacher_student::where(['teacher_id' => $teacher_id,
                                                       'student_id' => $student_id])->first();
+        // dd($teacher_student_id);
         $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
         if( is_null($latestWork) ){
             return view('teacher.screen_teacher')

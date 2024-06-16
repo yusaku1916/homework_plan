@@ -4,20 +4,25 @@
         <meta charset="utf-8">
         <title>Blog</title>
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/work_create.css') }}">
         <script type="text/javascript" src="/resources/js/work_store.js"></script>
     </head>
+    
     <body>
+            
+        <header>
+            <h1>宿題連絡帳</h1>
+            <h2>先生ページ</h2>
+        </header>
         
-        <h1 class="HEAD">宿題連絡帳</h1>
-        
-        <h2>先生ページ</h2>
         
         <form id="teacher" action="/works" method="POST">
             @csrf
             
-            <div id="work_input">
+            <div id='content-coment'>
+                
                 <input type="hidden" name="work[teacher_student_id]" value="{{ $teacher_student_id }}"/>
                 <input type="hidden" name="student_id" value="{{ $student_id }}"/>
                 
@@ -32,6 +37,7 @@
                     <textarea id="work_coment" name="work[coment]" placeholder="コメントやアドバイス"></textarea>
                     <p class="coment__error" style="color:red">{{ $errors->first() }}</p>
                 </div>
+                
             </div>
             
             
@@ -44,15 +50,16 @@
         </button>
         
         
-        <form id="logout" method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <x-dropdown-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-dropdown-link>
-        </form>
+        <footer>
+            <form id="logout" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    Log Out
+                </a>
+            </form>
+        </footer>
         
     </body>
 </html>

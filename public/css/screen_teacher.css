@@ -21,7 +21,7 @@ header{
 header>h1{
     font-size: 60px;
     text-align: center;
-    color: #bcd7fb;
+    color: #e1eefe;
 }
 
 #no_student>p{
@@ -165,7 +165,7 @@ hr {
     }
     
 body{
-    background-color: #A8E3FF;
+    background-image: url('back.jpg');
     font-family: 'Kiwi Maru', sans-serif;
     
 }

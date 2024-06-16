@@ -1,22 +1,48 @@
-#HEAD{
-    font-size: 64px;
-    text-align: center;
+/* #id .class */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.headline{
-    font-size: 30px;
+header{
+    background-image: url('header2.jpg');
+    background-repeat: no-repeat; 
+    /*background-position: center;*/
+    background-size: cover;/* 画面めいっぱいに表示 */
+    width: 100%;
+    height: 160px;
+    /*padding: 15px 0;*/
+    margin: 0 auto;
     text-align: center;
+    line-height: 160px;
+}
+
+header>h1{
+    font-size: 60px;
+    text-align: center;
+    color: #e1eefe;
 }
 
 #teacher{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+}
+
+#content-coment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2%;
 }
 
 #work{
-    width: 510px;
-    background-color: lightgreen;
+    width: 45%;
+    /*background-color: lightgreen;*/
     text-align: center;
 }
 
@@ -24,21 +50,8 @@
     background: white; /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
-    width: 90%; /* 幅 */
-    height: 180px; /* 高さ */
-    color: black; /* 文字色 */
-    /*font-size: 52px;  フォントサイズ */
-    text-align: center; /* 水平方向の中央揃え */
-    line-height: 100px; /* 垂直方向の中央揃え */
-    margin: auto;
-}
-
-#work_coment {
-    background: white; /* 背景色 */
-    border-radius: 30px; /* 丸枠 */
-    border: 3px solid black;
-    width: 90%; /* 幅 */
-    height: 180px; /* 高さ */
+    width: 100%; /* 幅 */
+    height: 200px; /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
@@ -47,26 +60,66 @@
 }
 
 #advice{
-    width: 510px;
-    background-color: lightgreen;
+    width: 45%;
+    /*background-color: lightgreen;*/
     text-align: center;
+}
+
+#work_coment {
+    background: white; /* 背景色 */
+    border-radius: 30px; /* 丸枠 */
+    border: 3px solid black;
+    width: 100%; /* 幅 */
+    height: 200px;
+    /* 高さ */
+    color: black; /* 文字色 */
+    /*font-size: 52px;  フォントサイズ */
+    text-align: center; /* 水平方向の中央揃え */
+    line-height: 100px; /* 垂直方向の中央揃え */
+    margin: auto;
+}
+
+#student{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
 }
 
 #plans{
     display: flex;
     flex-direction: column;
-    width: 1020px;
-    background-color: lightgreen;
-    text-align: center;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2%;
+}
+
+#plans>h2{
+    width: 90%;
+}
+
+#submit_table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
 }
 
 #submit{
-    width: 60px;
-    font-size: 15px;
+    background-color: #bababa;
+    border:black;
+    color: black;/*何の色だ*/
+    width: 12.5%;
+    margin: 5px;
 }
 
 h2{
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
     background-color: lightblue;
 }
 
@@ -74,23 +127,29 @@ p{
     font-size: 12px;
 }
 
-table, th, tr {
+table, th, td {
+    table-layout: fixed;
     background: white; /* 背景色 */
-    /*border: 1px solid black;*/
-    margin: auto;
+    border: 1px solid black;
 }
 
 table{
-    height: 180px;
+    width: 100%;
+    height: 200px;
+    /* 高さ */
 }
 
 th{
-    width: 6px;
     height: 30px;
 }
 
 td{
     height: 150px;
+}
+
+.test{
+    width: 100%;
+    height: 100%;
 }
 
 p{
@@ -99,25 +158,34 @@ p{
 
 hr {
     margin: 12px 0;
-    border: solid 1px black;
+    border: solid 1px #5d93d5;
+    width: 80%;
     }
     
 body{
-    background-color: #A8E3FF;
+    background-image: url('back.jpg');
+    font-family: 'Kiwi Maru', sans-serif;
+    display: flex;
+    flex-direction: column;
+    /*text-align:center;*/
+    align-items: center;
+    /*margin: auto;*/
 }
 
 button{
-    font-size: 12px;
+    background-color: #bababa;
+    border:black;
+    color: black;/*何の色だ*/
+    width: 12.5%;
+    margin: 5px;
+}
+
+footer{
+    width: 100%;
+    height: 80px;
     text-align: center;
-}
-
-.test{
-    max-width: 120px;
-    font-size: 18px;
-    height: 144px;
-}
-
-#logout{
+    line-height: 80px;
+    background-color:#bcebff;
     position: fixed;
     bottom: 0;
 }

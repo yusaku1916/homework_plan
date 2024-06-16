@@ -120,6 +120,12 @@ body{
     /*margin: auto;*/
 }
 
+hr {
+    margin: 12px 0;
+    border: solid 1px #5d93d5;
+    width: 80%;
+    }
+
 button{
     background-color: #bababa;
     border:black;

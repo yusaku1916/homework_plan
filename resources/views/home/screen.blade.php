@@ -72,79 +72,92 @@
                         計画を立てる
                     </button>
                     
-                    <table border="2">
-                        <tr>
-                            <th>日</th>
-                            <th>月</th>
-                            <th>火</th>
-                            <th>水</th>
-                            <th>木</th>
-                            <th>金</th>
-                            <th>土</th>
-                        </tr>
-                        @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
+                    @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
+                            
+                        <table border="2">
                             <tr>
-                                <td colspan="7"><p>学習予定を立てよう！</p></td>
+                                <th>日</th>
+                                <th>月</th>
+                                <th>火</th>
+                                <th>水</th>
+                                <th>木</th>
+                                <th>金</th>
+                                <th>土</th>
                             </tr>
-                        @else
                             <tr>
-                                <td>
-                                    @if(is_null($plans1->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans1->content }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if(is_null($plans2->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans2->content }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if(is_null($plans3->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans3->content }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if(is_null($plans4->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans4->content }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if(is_null($plans5->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans5->content }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if(is_null($plans6->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans6->content }}</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if(is_null($plans7->content))
-                                    <p>お休み</p>
-                                    @else
-                                    <p>{{ $plans7->content }}</p>
-                                    @endif
-                                </td>
+                                    <td colspan="7"><p>学習予定を立てよう！</p></td>
                             </tr>
-                    </table>
+                        </table>
                     
-                    <div class="submit">
-                        <button type=“button” onclick="location.href='/submits/create'">
-                            提出
-                        </button>
-                    </div>
+                    @else
+                        <table>
+                            <tr>
+                                <th>日</th>
+                                <th>月</th>
+                                <th>火</th>
+                                <th>水</th>
+                                <th>木</th>
+                                <th>金</th>
+                                <th>土</th>
+                            </tr>
+                                <tr>
+                                    <td>
+                                        @if(is_null($plans1->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans1->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans2->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans2->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans3->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans3->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans4->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans4->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans5->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans5->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans6->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans6->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans7->content))
+                                        <p>お休み</p>
+                                        @else
+                                        <p>{{ $plans7->content }}</p>
+                                        @endif
+                                    </td>
+                                </tr>
+                        </table>
+                    
+                        <div class="submit">
+                            <button type=“button” onclick="location.href='/submits/create'">
+                                提出
+                            </button>
+                        </div>
                     @endif
                     
                 </div>

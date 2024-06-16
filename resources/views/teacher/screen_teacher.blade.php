@@ -7,19 +7,20 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/screen_teacher.css') }}">
     </head>
-    <!--x-app-layout-->
+    
     <body>
         <div id="body1">
+            
             <header>
                 <h1>宿題連絡帳</h1>
             </header>
         
-            <form method="POST" action="{{ route('work.create') }}">
+            <form id="teacher" method="POST" action="{{ route('work.create') }}">
                 @csrf
                 
                 <input type="hidden" name="student_id" value="{{ $student_id }}">
                     
-                <div id='teacher'>
+                <div id='work_coment'>
                     
                     <div id="work">
                         <h2 class="headline">今週の宿題</h2>
@@ -42,13 +43,16 @@
                     
                 </div>
                 
-                <input type="submit" value="宿題を決める" id="teacher_buttun"/>
+                <input id="teacher_buttun" type="submit" value="宿題を決める"/>
                 
             </form>
+            <!--宿題＆コメント-->
         
             <hr>
+            <!--区切り線-->
         
             <div id="plans">
+                
                 <h2 class="headline">今週の計画</h2>
                 <table border="1">
                     
@@ -224,6 +228,7 @@
                 <!--計画＆提出-->
                 
             </div>
+            <!--生徒提出情報-->
             
         </div><!-- body1 -->
         
@@ -240,5 +245,4 @@
         </footer>
             
     </body>
-    <!--/x-app-layout-->
 </html>

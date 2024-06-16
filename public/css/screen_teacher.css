@@ -6,7 +6,7 @@
 }
 
 header{
-    background-image: url('header.jpg');
+    background-image: url('header2.jpg');
     background-repeat: no-repeat; 
     /*background-position: center;*/
     background-size: cover;/* 画面めいっぱいに表示 */
@@ -28,19 +28,6 @@ header>h1{
     font-size: 40px;
 }
 
-/*.navi-list{*/
-/*  text-align: center;*/
-/*  padding: 10px 0;*/
-  /*要勉強*/
-/*  margin: 0 auto;*/
-/*}*/
-
-/*.navi-list-item{*/
-/*  list-style: none;*/
-/*  display: inline-block;*/
-/*  margin: 0 20px;*/
-/*}*/
-
 #no_student{
     font-size: 12px;
     text-align: center;
@@ -50,8 +37,9 @@ header>h1{
 #body1{
     display: flex;
     flex-direction: column;
-    
-    margin: auto;
+    /*text-align:center;*/
+    align-items: center;
+    /*margin: auto;*/
 }
 
 #student_select{
@@ -69,12 +57,21 @@ header>h1{
 
 #teacher{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
+}
+
+#work_coment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 #work{
-    width: 35%;
+    width: 45%;
     background-color: lightgreen;
     text-align: center;
 }
@@ -93,7 +90,7 @@ header>h1{
 }
 
 #advice{
-    width: 35%;
+    width: 45%;
     background-color: lightgreen;
     text-align: center;
 }
@@ -161,7 +158,8 @@ th{
 
 hr {
     margin: 12px 0;
-    border: solid 1px black;
+    border: solid 1px #5d93d5;
+    width: 80%;
     }
     
 body{

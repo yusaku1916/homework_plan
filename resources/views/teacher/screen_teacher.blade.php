@@ -10,7 +10,9 @@
     <!--x-app-layout-->
     <body>
         <div id="body1">
-            <h1 class="HEAD">宿題連絡帳</h1>
+            <header>
+                <h1>宿題連絡帳</h1>
+            </header>
         
             <form method="POST" action="{{ route('work.create') }}">
                 @csrf
@@ -60,6 +62,7 @@
                         <th>金</th>
                         <th>土</th>
                     </tr>
+                    <!--曜日-->
                     
                     <tr>
                         @if (is_null($plans1) && is_null($plans2) && is_null($plans3) && is_null($plans4) && is_null($plans5) && is_null($plans6) && is_null($plans7))
@@ -119,6 +122,7 @@
                             </td>
                         @endif
                     </tr>
+                    <!--計画-->
                     
                     <tr id="submit_status">
                         <td class="column1">status</td>
@@ -166,6 +170,7 @@
                             <p><a href='{{ $submits7->image_id }}'>提出済み</p>
                             @endif
                     </tr>
+                    <!--提出状況-->
                     
                     <tr>
                         <td class="column1">提出内容</td>
@@ -213,25 +218,26 @@
                             <p>{{ $submits7->content }}</p>
                             @endif
                     </tr>
-                    
-                    
+                    <!--提出内容-->
                     
                 </table>
+                <!--計画＆提出-->
                 
             </div>
             
         </div><!-- body1 -->
         
         
-        <form id="logout" method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <x-dropdown-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-dropdown-link>
-        </form>
+        <footer>
+            <form id="logout" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    Log Out
+                </a>
+            </form>
+        </footer>
             
     </body>
     <!--/x-app-layout-->

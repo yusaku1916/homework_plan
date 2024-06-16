@@ -1,0 +1,82 @@
+#HEAD{
+    font-size: 64px;
+    text-align: center;
+}
+
+.headline{
+    font-size: 30px;
+    text-align: center;
+}
+
+#teacher{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#work{
+    width: 510px;
+    background-color: lightgreen;
+    text-align: center;
+}
+
+#submit{
+    width: 60px;
+    font-size: 15px;
+}
+
+h3{
+    background-color: lightblue;
+}
+
+p{
+    font-size: 12px;
+}
+
+table, th, tr {
+    background: white; /* 背景色 */
+    /*border: 1px solid black;*/
+    margin: auto;
+}
+
+table{
+    height: 180px;
+}
+
+th{
+    width: 6px;
+    height: 30px;
+}
+
+td{
+    height: 150px;
+}
+
+p{
+    font-size: 24px;
+}
+
+hr {
+    margin: 12px 0;
+    border: solid 1px black;
+    }
+    
+body{
+    background-color: #A8E3FF;
+}
+
+button{
+    font-size: 12px;
+    text-align: center;
+}
+
+.test{
+    max-width: 120px;
+    font-size: 18px;
+    height: 144px;
+}
+
+#logout{
+    position: fixed;
+    bottom: 0;
+}

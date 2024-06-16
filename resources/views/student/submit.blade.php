@@ -4,11 +4,13 @@
         <meta charset="utf-8">
         <title>Blog</title>
         <!-- Fonts -->
+        <link rel="stylesheet" href="{{ asset('/css/submit.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
-    <x-app-layout>
+    
     <body>
-        <h1>今日の宿題の写真を提出しましょう！</h1>
+        <h1 id="HEAD">宿題連絡帳</h1>
+        <h2>今日の宿題の写真を提出しましょう！</h2>
         <!--select>
             foreach$plans as $plan)
                 <option value="{ $plan->id }}">{ $teacher->name }}</option>
@@ -18,19 +20,24 @@
             @csrf
             <input type="hidden" name="student_id" value="1"/>
             
-            <select name="D_number">
-                @foreach($days as $day)
-                    <option value="{{ $day->id }}">{{ $day->day }}</option>
-                @endforeach
-            </select>
+            <div>
+                <h3 class="headline">今日は何曜日？</h3>
+                <select name="D_number">
+                    @foreach($days as $day)
+                        <option value="{{ $day->id }}">{{ $day->day }}</option>
+                    @endforeach
+                </select>
+            </div>
+            
             
             <div>
+                <h3 class="headline">今日は何をした？</h3>
                 <textarea name="content" placeholder="今週も頑張りましょう！">{{ old('content') }}</textarea>
                 <p style="color:red">{{ $errors->first('content') }}</p>
             </div>
             
             <div>
-                <h2>写真でも記録しよう！</h2>
+                <h3>写真でも記録しよう！</h3>
                 <input type="file" name="image">
                 <p style="color:red">{{ $errors->first('image') }}</p>
             </div>
@@ -41,8 +48,17 @@
         <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->
             戻る
         </button>
-        <hr>
+        
+        <form id="logout" method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <x-dropdown-link :href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </x-dropdown-link>
+        </form>
         
     </body>
-    </x-app-layout>
+    
 </html>

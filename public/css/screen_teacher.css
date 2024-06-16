@@ -1,4 +1,42 @@
 /* #id .class */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+    background-image: url('header.jpg');
+    background-repeat: no-repeat; 
+    /*background-position: center;*/
+    background-size: cover;/* 画面めいっぱいに表示 */
+    width: 100%;
+    height: 160px;
+    /*padding: 15px 0;*/
+    margin: 0 auto;
+    text-align: center;
+    line-height: 160px;
+}
+
+header>h1{
+    font-size: 60px;
+    text-align: center;
+    color: #bcd7fb;
+}
+
+/*.navi-list{*/
+/*  text-align: center;*/
+/*  padding: 10px 0;*/
+  /*要勉強*/
+/*  margin: 0 auto;*/
+/*}*/
+
+/*.navi-list-item{*/
+/*  list-style: none;*/
+/*  display: inline-block;*/
+/*  margin: 0 20px;*/
+/*}*/
+
 #no_student{
     font-size: 20px;
     text-align: center;
@@ -83,20 +121,12 @@
     height: 20%;
 }
 
-#logout{
-    position: fixed;
-    bottom: 0;
-}
-
 .column1{
     width: 9%;
     font-size: 30px;
 }
 
-.HEAD{
-    font-size: 80px;
-    text-align: center;
-}
+
 
 .headline{
     font-size: 50px;
@@ -128,6 +158,8 @@ hr {
     
 body{
     background-color: #A8E3FF;
+    font-family: 'Kiwi Maru', sans-serif;
+    
 }
 
 button{
@@ -148,3 +180,15 @@ select{
     height: 50px;
 }
 
+footer{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background-color:#bcebff;
+    position: fixed;
+    bottom: 0;
+}
+
+/*#logout{*/
+/*}*/

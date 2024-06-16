@@ -4,16 +4,27 @@
         <meta charset="utf-8">
         <title>Blog</title>
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/screen_teacher.css') }}">
     </head>
     <!--x-app-layout-->
     <body>
         <div id="body1">
             
-            <h1 class="HEAD">宿題連絡帳</h1>
-                
+            <header>
+                <h1>宿題連絡帳</h1>
+            </header>
+            <!--<nav>-->
+            <!--    <ul class="navi-list">-->
+            <!--        <li class="navi-list-item">1</li>-->
+            <!--        <li class="navi-list-item">1</li>-->
+            <!--        <li class="navi-list-item">1</li>-->
+            <!--    </ul>-->
+            <!--</nav>-->
+            
             @if($identify_id == 1)
+            <!--先生ビュー-->
             
                 @if(is_null($students))
                 
@@ -40,6 +51,7 @@
                 @endif
                 
             @elseif($identify_id == 2)
+            <!--生徒ビュー-->
                 
                 <div id='teacher'>
                     
@@ -165,16 +177,19 @@
         </div>
         
         
-        <form id="logout" method="POST" action="{{ route('logout') }}">
-            @csrf
 
-            <x-dropdown-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-dropdown-link>
-            
-        </form>
+        <footer>
+            <form id="logout" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    Log Out
+                </a>
+            </form>
+        </footer>
+
+
 
     </body>
     <!--/x-app-layout-->

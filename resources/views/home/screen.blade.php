@@ -27,8 +27,10 @@
             <!--先生ビュー-->
             
                 @if(is_null($students))
-                
-                    <p id="no_student">生徒の登録を待とう！</p>
+                    <div id="no_student">
+                        <p>生徒の登録を待とう！</p>
+                    </div>
+                    
                     
                 @else
                 

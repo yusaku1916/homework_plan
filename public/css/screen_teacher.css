@@ -1,5 +1,5 @@
 /* #id .class */
-
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +22,10 @@ header>h1{
     font-size: 60px;
     text-align: center;
     color: #bcd7fb;
+}
+
+#no_student>p{
+    font-size: 40px;
 }
 
 /*.navi-list{*/

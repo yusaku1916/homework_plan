@@ -8,18 +8,62 @@
 header{
     background-image: url('header2.jpg');
     background-repeat: no-repeat; 
+    /*background-position: center;*/
     background-size: cover;/* 画面めいっぱいに表示 */
     width: 100%;
-    height: 200px;
+    height: 160px;
+    /*padding: 15px 0;*/
     margin: 0 auto;
     text-align: center;
-    line-height: 100px;
+    line-height: 160px;
 }
 
 header>h1{
     font-size: 60px;
     text-align: center;
     color: #e1eefe;
+}
+
+#no_student>p{
+    font-size: 40px;
+}
+
+#no_student{
+    font-size: 12px;
+    text-align: center;
+}
+
+#student_select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+#student_select>h1{
+    margin: 10px;
+}
+
+#student_id{
+    width: 50%;
+    font-size: 36px;
+    margin: 10px;
+    text-align: center;
+}
+
+#student_select_1{
+    width: 25%;
+    font-size: 24px;
+    margin: 10px;
+}
+
+#body1{
+    display: flex;
+    flex-direction: column;
+    /*text-align:center;*/
+    align-items: center;
+    /*margin: auto;*/
 }
 
 #teacher{
@@ -44,7 +88,7 @@ header>h1{
     text-align: center;
 }
 
-#work_content {
+.work_content {
     background: white; /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
@@ -63,7 +107,7 @@ header>h1{
     text-align: center;
 }
 
-#work_coment {
+.work_coment {
     background: white; /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
@@ -77,47 +121,74 @@ header>h1{
     margin: auto;
 }
 
-#work_store{
-    background-color: #bababa;
-    border:black;
-    color: black;/*何の色だ*/
-    width: 12.5%;
-    margin: 5px;
+#student{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
 }
 
-.HEAD{
-    font-size: 64px;
-    text-align: center;
+#plans{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2%;
 }
+
+#plans>h2{
+    width: 90%;
+}
+
+/*.headline{*/
+/*    font-size: 30px;*/
+/*    text-align: center;*/
+/*    width: 100%;*/
+/*}*/
 
 h2{
-    font-size: 32px;
-    text-align: center;
-    color: #e1eefe;
-}
-
-h3{
     font-size: 40px;
     text-align: center;
     width: 100%;
+    /*background-color: lightblue;*/
 }
-
-/*h3{*/
-/*    background-color: lightblue;*/
-/*}*/
 
 p{
     font-size: 24px;
 }
 
+table, th, td {
+    table-layout: fixed;
+    background: white; /* 背景色 */
+    border: 1px solid black;
+}
+
+table{
+    width: 90%;
+    height: 200px;
+    /* 高さ */
+}
+
+th{
+    font-size: 18px;
+}
+
+.column1{
+    width: 9%;
+    font-size: 18px;
+}
+
+hr {
+    margin: 12px 0;
+    border: solid 1px #5d93d5;
+    width: 80%;
+    }
+    
 body{
     background-image: url('back.jpg');
     font-family: 'Kiwi Maru', sans-serif;
-    display: flex;
-    flex-direction: column;
-    /*text-align:center;*/
-    align-items: center;
-    /*margin: auto;*/
 }
 
 button{
@@ -125,11 +196,15 @@ button{
     border:black;
     color: black;/*何の色だ*/
     width: 12.5%;
-    margin: 5px;
+    margin: 2px;
 }
 
-textarea{
-    font-size: 24px;
+select{
+    background-color: #dfdfdf;
+}
+
+option{
+    background-color: #bababa;
 }
 
 footer{

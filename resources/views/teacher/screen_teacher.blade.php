@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>宿題連絡帳</title>
         <!-- Fonts -->
         <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
                     <div id="work">
                         <h2 class="headline">今週の宿題</h2>
                         @if(is_null($works))
-                            <p class='work_content'>宿題決めよー</p>
+                            <p class='work_content'>宿題を出そう</p>
                         @else
                             <p class='work_content'>{{ $works->content }}</p>
                         @endif
@@ -35,7 +35,7 @@
                     <div id="advice">
                         <h2 class="headline">アドバイス・コメント</h2>
                         @if(is_null($works))
-                            <p class='work_coment'>advice書け</p>
+                            <p class='work_coment'>アドバイスやコメントを書こう</p>
                         @else
                             <p class='work_coment'>{{ $works->coment }}</p>
                         @endif

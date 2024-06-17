@@ -1,82 +1,100 @@
-#HEAD{
-    font-size: 64px;
-    text-align: center;
+/* #id .class */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.headline{
-    font-size: 30px;
+header{
+    background-image: url('header2.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;/* 画面めいっぱいに表示 */
+    width: 100%;
+    height: 160px;
+    margin: 0 auto;
     text-align: center;
+    line-height: 160px;
 }
 
-#teacher{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#work{
-    width: 510px;
-    background-color: lightgreen;
+header>h1{
+    font-size: 60px;
     text-align: center;
+    color: #e1eefe;
 }
 
 #submit{
-    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     font-size: 15px;
+    text-align: center;
 }
 
-h3{
-    background-color: lightblue;
+#day, #content, #image{
+    width: 60%;
+    text-align: center;
+    margin: 10px;
 }
 
-p{
-    font-size: 12px;
-}
-
-table, th, tr {
-    background: white; /* 背景色 */
-    /*border: 1px solid black;*/
-    margin: auto;
-}
-
-table{
-    height: 180px;
-}
-
-th{
-    width: 6px;
-    height: 30px;
-}
-
-td{
-    height: 150px;
+.headline{
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    /*background-color: grey;*/
 }
 
 p{
     font-size: 24px;
 }
-
-hr {
-    margin: 12px 0;
-    border: solid 1px black;
-    }
     
 body{
-    background-color: #A8E3FF;
+    background-image: url('back.jpg');
+    font-family: 'Kiwi Maru', sans-serif;
+    display: flex;
+    flex-direction: column;
+    /*text-align:center;*/
+    align-items: center;
+    /*margin: auto;*/
 }
 
-button{
-    font-size: 12px;
+select{
+    font-size: 24px;
+    width: 25%;
     text-align: center;
+    margin: 5px;
 }
 
-.test{
-    max-width: 120px;
-    font-size: 18px;
-    height: 144px;
+textarea{
+    font-size: 24px;
+    width: 70%;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    margin: 5px;
 }
 
-#logout{
+#image>input{
+    font-size: 24px;
+    /*width: 25%;*/
+    text-align: center;
+    margin: 5px;
+}
+
+button, #submit_input{
+    background-color: #bababa;
+    border:black;
+    color: black;/*何の色だ*/
+    width: 12.5%;
+    margin: 5px;
+}
+
+footer{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background-color:#bcebff;
     position: fixed;
     bottom: 0;
 }

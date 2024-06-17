@@ -157,11 +157,10 @@
                                     </tr>
                             </table>
                         
-                            <div class="submit">
-                                <button type=“button” onclick="location.href='/submits/create'">
-                                    提出
-                                </button>
-                            </div>
+                            <button type=“button” onclick="location.href='/submits/create'">
+                                提出
+                            </button>
+
                         @endif
                         
                     </div>

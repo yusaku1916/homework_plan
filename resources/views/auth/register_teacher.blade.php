@@ -53,8 +53,10 @@
             </x-primary-button>
         </div>
     </form>
-        
-    
-    <h1>a</h1>
+    <style>
+        background-image{
+            font-family: 'Kiwi Maru', sans-serif;
+        }
+    </style>
         
 </x-guest-layout>

@@ -65,7 +65,7 @@ header>h1{
 }
 
 .work_content {
-    background: white; /* 背景色 */
+    background: rgba(256, 256, 256, 0.5); /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
     width: 100%; /* 幅 */
@@ -84,7 +84,7 @@ header>h1{
 }
 
 .work_coment {
-    background: white; /* 背景色 */
+    background: rgba(256, 256, 256, 0.5); /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
     width: 100%; /* 幅 */

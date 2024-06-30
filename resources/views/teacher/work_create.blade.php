@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/work_create.css') }}">
         <script type="text/javascript" src="/resources/js/work_store.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
     
     <body>
@@ -33,7 +34,7 @@
                 </div>
                 
                 <div id="advice">
-                    <h3 class="headline">アドバイス・コメント</h3>
+                    <h3 class="headline">コメント</h3>
                     <textarea id="work_coment" name="work[coment]" placeholder="コメントやアドバイス"></textarea>
                     <p class="coment__error" style="color:red">{{ $errors->first() }}</p>
                 </div>

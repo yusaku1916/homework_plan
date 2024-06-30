@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 20);
             // $table->string('grade', 10);
-            $table->integer('grade', 10);
+            $table->integer('grade');
             $table->string('gender', 10);
             $table->timestamps();
             $table->softDeletes();

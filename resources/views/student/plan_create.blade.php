@@ -7,6 +7,7 @@
         <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/plan_create.css') }}">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
     
     <body>
@@ -23,7 +24,7 @@
                 </div>
                     
                 <div id="advice">
-                    <h2 class="headline">アドバイス・コメント</h2>
+                    <h2 class="headline">コメント</h2>
                     <p id="work_coment">{{ $works->coment }}</p>
                 </div>
             </div>

@@ -7,15 +7,16 @@
         <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/screen.css') }}">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
     
     <body>
+            
+        <header>
+            <h1>宿題連絡帳</h1>
+        </header>
+        
         <div id="body1">
-            
-            <header>
-                <h1>宿題連絡帳</h1>
-            </header>
-            
             @if($identify_id == 1)
             <!--先生ビュー-->
             
@@ -57,7 +58,7 @@
                         </div>
                         
                         <div id='advice'>
-                            <h2 class="headline">アドバイス・コメント</h2>
+                            <h2 class="headline">コメント</h2>
                             @if(is_null($works))
                                 <p class='work_coment'>adviceを待ちましょう</p>
                             @else
@@ -104,57 +105,57 @@
                                     <th>金</th>
                                     <th>土</th>
                                 </tr>
-                                    <tr>
-                                        <td>
-                                            @if(is_null($plans1->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans1->content }}</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(is_null($plans2->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans2->content }}</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(is_null($plans3->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans3->content }}</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(is_null($plans4->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans4->content }}</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(is_null($plans5->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans5->content }}</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(is_null($plans6->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans6->content }}</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if(is_null($plans7->content))
-                                            <p>お休み</p>
-                                            @else
-                                            <p>{{ $plans7->content }}</p>
-                                            @endif
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        @if(is_null($plans1->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans1->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans2->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans2->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans3->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans3->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans4->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans4->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans5->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans5->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans6->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans6->content }}</p>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($plans7->content))
+                                        <p class='table_item'>お休み</p>
+                                        @else
+                                        <p class='table_item'>{{ $plans7->content }}</p>
+                                        @endif
+                                    </td>
+                                </tr>
                             </table>
                         
                             <button type=“button” onclick="location.href='/submits/create'">

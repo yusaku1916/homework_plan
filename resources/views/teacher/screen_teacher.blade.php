@@ -7,6 +7,7 @@
         <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/screen_teacher.css') }}">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
     
     <body>
@@ -33,7 +34,7 @@
                     </div>
                     
                     <div id="advice">
-                        <h2 class="headline">アドバイス・コメント</h2>
+                        <h2 class="headline">コメント</h2>
                         @if(is_null($works))
                             <p class='work_coment'>アドバイスやコメントを書こう</p>
                         @else
@@ -80,51 +81,51 @@
                                 <td class="column1">計画</td>
                                 <td>
                                     @if(is_null($plans1->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans1->content }}</p>
+                                    <p class='table_item'>{{ $plans1->content }}</p>
                                     @endif
                                 </td>
                                 <td>
                                     @if(is_null($plans2->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans2->content }}</p>
+                                    <p class='table_item'>{{ $plans2->content }}</p>
                                     @endif
                                 </td>
                                 <td>
                                     @if(is_null($plans3->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans3->content }}</p>
+                                    <p class='table_item'>{{ $plans3->content }}</p>
                                     @endif
                                 </td>
                                 <td>
                                     @if(is_null($plans4->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans4->content }}</p>
+                                    <p class='table_item'>{{ $plans4->content }}</p>
                                     @endif
                                 </td>
                                 <td>
                                     @if(is_null($plans5->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans5->content }}</p>
+                                    <p class='table_item'>{{ $plans5->content }}</p>
                                     @endif
                                 </td>
                                 <td>
                                     @if(is_null($plans6->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans6->content }}</p>
+                                    <p class='table_item'>{{ $plans6->content }}</p>
                                     @endif
                                 </td>
                                 <td>
                                     @if(is_null($plans7->content))
-                                    <p>お休み</p>
+                                    <p class='table_item'>お休み</p>
                                     @else
-                                    <p>{{ $plans7->content }}</p>
+                                    <p class='table_item'>{{ $plans7->content }}</p>
                                     @endif
                                 </td>
                             @endif
@@ -135,46 +136,46 @@
                             <td class="column1">status</td>
                             <td>
                                 @if(is_null($submits1))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits1->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits1->image_id }}'>提出済み</p>
                                 @endif
                             </td>
                             <td>
                                 @if(is_null($submits2))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits2->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits2->image_id }}'>提出済み</p>
                                 @endif
                             <td>
                                 @if(is_null($submits3))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits3->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits3->image_id }}'>提出済み</p>
                                 @endif
                             <td>
                                 @if(is_null($submits4))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits4->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits4->image_id }}'>提出済み</p>
                                 @endif
                             <td>
                                 @if(is_null($submits5))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits5->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits5->image_id }}'>提出済み</p>
                                 @endif
                             <td>
                                 @if(is_null($submits6))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits6->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits6->image_id }}'>提出済み</p>
                                 @endif
                             <td>
                                 @if(is_null($submits7))
-                                <p>提出なし</p>
+                                <p class='table_item'>提出なし</p>
                                 @else
-                                <p><a href='{{ $submits7->image_id }}'>提出済み</p>
+                                <p class='table_item'><a href='{{ $submits7->image_id }}'>提出済み</p>
                                 @endif
                         </tr>
                         <!--提出状況-->
@@ -183,46 +184,46 @@
                             <td class="column1">提出内容</td>
                             <td>
                                 @if(is_null($submits1))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits1->content }}</p>
+                                <p class='table_item'>{{ $submits1->content }}</p>
                                 @endif
                             </td>
                             <td>
                                 @if(is_null($submits2))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits3->content }}</p>
+                                <p class='table_item'>{{ $submits3->content }}</p>
                                 @endif
                             <td>
                                 @if(is_null($submits3))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits3->content }}</p>
+                                <p class='table_item'>{{ $submits3->content }}</p>
                                 @endif
                             <td>
                                 @if(is_null($submits4))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits4->content }}</p>
+                                <p class='table_item'>{{ $submits4->content }}</p>
                                 @endif
                             <td>
                                 @if(is_null($submits5))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits5->content }}</p>
+                                <p class='table_item'>{{ $submits5->content }}</p>
                                 @endif
                             <td>
                                 @if(is_null($submits6))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits6->content }}</p>
+                                <p class='table_item'>{{ $submits6->content }}</p>
                                 @endif
                             <td>
                                 @if(is_null($submits7))
-                                <p>お休み</p>
+                                <p class='table_item'>お休み</p>
                                 @else
-                                <p>{{ $submits7->content }}</p>
+                                <p class='table_item'>{{ $submits7->content }}</p>
                                 @endif
                         </tr>
                         <!--提出内容-->

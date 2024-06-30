@@ -6,7 +6,7 @@
 }
 
 header{
-    background-image: url('header2.jpg');
+    background-image: url('header.jpg');
     background-repeat: no-repeat; 
     background-size: cover;/* 画面めいっぱいに表示 */
     width: 100%;
@@ -45,16 +45,17 @@ header>h1{
 }
 
 #work_content {
-    background: white; /* 背景色 */
+    background: rgba(256, 256, 256, 0.5); /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
-    width: 100%; /* 幅 */
+    width: 90%; /* 幅 */
     height: 200px; /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
     line-height: 100px; /* 垂直方向の中央揃え */
-    margin: auto;
+    margin: 0 5%;
+    overflow-y: auto; /* 縦方向のスクロールを有効にする */
 }
 
 #advice{
@@ -64,17 +65,18 @@ header>h1{
 }
 
 #work_coment {
-    background: white; /* 背景色 */
+    background: rgba(256, 256, 256, 0.5); /* 背景色 */
     border-radius: 30px; /* 丸枠 */
     border: 3px solid black;
-    width: 100%; /* 幅 */
+    width: 90%; /* 幅 */
     height: 200px;
     /* 高さ */
     color: black; /* 文字色 */
     /*font-size: 52px;  フォントサイズ */
     text-align: center; /* 水平方向の中央揃え */
     line-height: 100px; /* 垂直方向の中央揃え */
-    margin: auto;
+    margin: 0 5%;
+    overflow-y: auto; /* 縦方向のスクロールを有効にする */
 }
 
 #work_store{
@@ -111,7 +113,7 @@ p{
 }
 
 body{
-    background-image: url('back.jpg');
+    background-image: url('back2.jpg');
     font-family: 'Kiwi Maru', sans-serif;
     display: flex;
     flex-direction: column;
@@ -127,9 +129,9 @@ hr {
     }
 
 button{
-    background-color: #bababa;
+    background-color: #ccc;
     border:black;
-    color: black;/*何の色だ*/
+    color: black;
     width: 12.5%;
     margin: 5px;
 }
@@ -146,4 +148,39 @@ footer{
     background-color:#bcebff;
     position: fixed;
     bottom: 0;
+}
+
+@media screen and (max-width:768px){
+    
+    #body1{
+        height: auto;
+    }
+    
+    #content-coment{
+        display: block;
+    }
+    
+    #work, #advice{
+        width: 100%;
+        padding: 5% 10%;
+    }    
+    
+    table {
+      /*border-collapse: collapse;*/
+      width: 75%;
+      writing-mode: vertical-lr; /* 縦書きに設定 */
+    }
+    
+    td, th{
+        height: 80px;
+        writing-mode: horizontal-tb; /* セル内の文字を横書きに戻す */
+    }
+    
+    .table_item{
+        height: 80px;
+    }
+    
+    footer{
+        position: static;
+    }
 }

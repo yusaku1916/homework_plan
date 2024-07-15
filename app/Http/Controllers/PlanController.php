@@ -18,9 +18,16 @@ class PlanController extends Controller
         $student_id = Student::where('user_id', $user_id)->first()->id;
         $teacher_student_id = Teacher_student::where('student_id', $student_id)->first()->id;
         $latestWork = Work::where('teacher_student_id', $teacher_student_id)->latest()->first();
-        return view('student.plan_create')
-        ->with(['works' => $latestWork,
-                'work_number' => $latestWork->id]);
+        // dd($latestWork);
+        if(is_null($latestWork)){
+            session()->flash('message', '先生が宿題を出してくれるのを待とう！');
+            return redirect()->route('screen', ['student_id' => $student_id]);
+        }
+        else{
+            return view('student.plan_create')
+            ->with(['works' => $latestWork,
+                    'work_number' => $latestWork->id]);
+        }
     }
     
     public function plan_store(Request $request, Plan $plan)

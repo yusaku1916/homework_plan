@@ -73,6 +73,11 @@
                 <div id="student">
                     <div id='plans'>
                         <h2 class="headline">今週の計画</h2>
+                        @if (session('message'))
+                            <div class="alert alert-success">
+                                {{ session('message') }}
+                            </div>
+                        @endif
                         <button id="plan_button" type=“button” onclick="location.href='/plans/create'"><!-- onclick についてわかっていない -->
                             計画を立てる
                         </button>

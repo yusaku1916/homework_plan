@@ -95,6 +95,6 @@ footer{
     text-align: center;
     line-height: 80px;
     background-color:#bcebff;
-    position: fixed;
-    bottom: 0;
+    position: static;
+    /*bottom: 0;*/
 }

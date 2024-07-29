@@ -38,7 +38,7 @@ class PlanController extends Controller
             $plan->fill($input);
             $plan->day_id = $request->day_id[$i];
             $plan->content = $request->content[$i];
-            dd($plan);
+            // dd($plan);
             $plan->save();
         }
         return redirect(route('screen'));

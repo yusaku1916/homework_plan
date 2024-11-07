@@ -1,70 +1,43 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>宿題連絡帳</title>
-        <!-- Fonts -->
-        <link rel="stylesheet" href="{{ asset('/css/submit.css') }}">
-        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
-        <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    </head>
+<x-app-layout>
+  <div class="flex flex-col justify-center items-center h-full">
     
-    <body>
-            
-        <header>
-            <h1>宿題連絡帳</h1>
-        </header>
-        
-        <h2 class="headline">今日の宿題の写真を提出しましょう！</h2>
-        <!--select>
-            foreach$plans as $plan)
-                <option value="{ $plan->id }}">{ $teacher->name }}</option>
-            endforeach
-        </select-->
-        <form action='/submits' method='POST' enctype="multipart/form-data" id="submit">
-            @csrf
-            <input type="hidden" name="student_id" value="1"/>
-            
-            <div id="day">
-                <h3 class="headline">今日は何曜日？</h3>
-                <select name="D_number">
-                    @foreach($days as $day)
-                        <option value="{{ $day->id }}">{{ $day->day }}</option>
-                    @endforeach
-                </select>
-            </div>
-            
-            <div id="content">
-                <h3 class="headline">今日は何をした？</h3>
-                <textarea name="content" placeholder="今週も頑張りましょう！">{{ old('content') }}</textarea>
-                <p style="color:red">{{ $errors->first('content') }}</p>
-            </div>
-            
-            <div id="image">
-                <h3 class="headline">写真でも記録しよう！</h3>
-                <input type="file" name="image">
-                <p style="color:red">{{ $errors->first('image') }}</p>
-            </div>
-            
-            <input type="submit" value="完了" id="submit_input"/>
-            
-        </form>
-        <button type=“button” onclick="location.href='/'"><!-- onclick についてわかっていない -->
-            戻る
+    <h2 class="text-4xl my-4">今日の宿題の写真を提出しましょう！</h2>
+    <form action='/submits' method='POST' enctype="multipart/form-data" class="w-full">
+      @csrf
+      <input type="hidden" name="student_id" value="1"/>
+      
+      <div class="flex flex-col justify-center items-center my-2">
+        <h3 class="mt-4 mb-2 text-2xl">今日は何曜日？</h3>
+        <select name="D_number">
+          @foreach($days as $day)
+            <option value="{{ $day->id }}">{{ $day->day }}</option>
+          @endforeach
+        </select>
+      </div>
+      
+      <div class="flex flex-col justify-center items-center my-2">
+        <h3 class="mt-4 mb-2 text-2xl">今日は何をした？</h3>
+        <textarea name="content" placeholder="今週も頑張りましょう！" class="w-1/2 sm:w-1/3 min-h-[200px]">{{ old('content') }}</textarea>
+        <p style="color:red">{{ $errors->first('content') }}</p>
+      </div>
+      
+      <div class="flex flex-col justify-center items-center my-2">
+        <h3 class="mt-4 mb-2 text-2xl">写真も送ろう！</h3>
+        <input type="file" name="image">
+        <p style="color:red">{{ $errors->first('image') }}</p>
+      </div>
+      
+      <div class="flex justify-center items-center my-2">
+        <button class="m-2 bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded"> 
+          <input type="submit" value="完了" id="submit_input"/>
         </button>
+        <button type=“button” onclick="location.href='/'"
+        class="m-2  bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded">
+          戻る
+        </button>
+      </div>
         
-        <footer>
-            <form id="logout" method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a href="route('logout')"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                    Log Out
-                </a>
-            </form>
-        </footer>
-        
-    </body>
+    </form>
+  </div>
     
-</html>
+</x-app-layout>

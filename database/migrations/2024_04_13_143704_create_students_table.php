@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name', 20);
-            $table->string('grade', 10);
+            // $table->string('grade', 10);
+            $table->integer('grade');
             $table->string('gender', 10);
             $table->timestamps();
             $table->softDeletes();

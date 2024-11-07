@@ -1,6 +1,6 @@
 <x-guest-layout>
     
-    <h1>先生用登録フォーム</h1>
+    <h1 class='text-xl m-2'>先生用登録フォーム</h1>
     
     <form method="POST" action="{{ route('store.teacher') }}">
         @csrf

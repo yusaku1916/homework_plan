@@ -32,9 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
 Route::group(['middleware' => ['auth']], function(){
-    Route::get('/', [WorkController::class, 'index'])->name('screen');
+    Route::get('/', [WorkController::class, 'top'])->name('top');
     
-    Route::post('/teacher/home', [WorkController::class, 'home_teacher'])->name('screen.teacher');
+    Route::post('/teacher/home', [WorkController::class, 'home_teacher'])->name('home.teacher');
     
     Route::get('/teacher/home/{student_id}', [WorkController::class, 'home_teacher_return'])
     ->name('screen.return');

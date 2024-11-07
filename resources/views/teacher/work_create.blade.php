@@ -33,7 +33,7 @@
     
     <button type=“button” onclick="location.href='/'"
      class="mt-2 bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded">
-    戻る
+      戻る
     </button>
   </div>
 

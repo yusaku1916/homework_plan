@@ -5,19 +5,25 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    <a href="{{ route('top') }}">
+                        <!--<x-application-logo class="block h-9 w-auto fill-current text-white" /-->
+                        <!--<i class="fa-light fa-pencil block h-9 w-auto fill-current text-white"></i>-->
+                        <span style="font-family: 'Mochiy Pop P One', sans-serif;, font-weight: 400;, font-style: normal;"
+                        class="text-xl sm:text-3xl text-white sm:tracking-widest">
+                            宿題連絡帳
+                        </span>
+                        <i class="fas fa-pencil-alt text-white text-xl sm:text-3xl"></i>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('screen')" :active="request()->routeIs('screen')">
-                        {{ __('Screen') }}
-                    </x-nav-link>
+                    <!--<x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">-->
+                    <!--    {{ __('Dashboard') }}-->
+                    <!--</x-nav-link>-->
+                    <!--<x-nav-link :href="route('top')" :active="request()->routeIs('top')">-->
+                    <!--    {{ __('TOP') }}-->
+                    <!--</x-nav-link>-->
                 </div>
             </div>
 
@@ -68,22 +74,23 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
+        <!--<div class="pt-2 pb-3 space-y-1">-->
+        <!--    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">-->
+        <!--        {{ __('Dashboard') }}-->
+        <!--    </x-responsive-nav-link>-->
+        <!--</div>-->
 
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        <div class="pt-4 pb-1 border-t border-gray-100">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-gray-300">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile.edit')"
+                class="text-gray-300 hover:text-gray-200">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
@@ -93,7 +100,8 @@
 
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                                        this.closest('form').submit();"
+                                        class="text-gray-300 hover:text-gray-200">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
@@ -101,3 +109,5 @@
         </div>
     </div>
 </nav>
+
+

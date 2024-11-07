@@ -11,7 +11,7 @@
                 
             <h1 class="text-3xl m-2">誰の指導をしますか</h1>
         
-            <form method="POST" action="{{ route("screen.teacher") }}"
+            <form method="POST" action="{{ route("home.teacher") }}"
             class="flex flex-col m-2">
                 @csrf
                 

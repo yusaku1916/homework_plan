@@ -22,7 +22,7 @@ class WorkController extends Controller
         return view('home.start');
     }
     
-    public function index(Work $work, Plan $plan, Student $student, Teacher_student $teacher_student, Teacher $teacher)//インポートしたPostをインスタンス化して$postとして使用。
+    public function top(Work $work, Plan $plan, Student $student, Teacher_student $teacher_student, Teacher $teacher)//インポートしたPostをインスタンス化して$postとして使用。
     {
         $user_id = Auth::user()->id;
         //dd($user_id);
@@ -228,10 +228,6 @@ class WorkController extends Controller
     public function homework_store(Request $request, Work $work)
     {
         $student_id = $request->student_id;
-        /*$validator = $request->getValidatorInstance();
-        if ($validator->fails()) {
-            return redirect()->route('work.create', ['student_id' => $student_id]);
-        }*/
         $input = $request['work'];
         $work->fill($input);
         $validator = Validator::make($request->all(), [

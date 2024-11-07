@@ -22,7 +22,7 @@ class WorkController extends Controller
         return view('home.start');
     }
     
-    public function index(Work $work, Plan $plan, Student $student, Teacher_student $teacher_student, Teacher $teacher)//インポートしたPostをインスタンス化して$postとして使用。
+    public function top(Work $work, Plan $plan, Student $student, Teacher_student $teacher_student, Teacher $teacher)//インポートしたPostをインスタンス化して$postとして使用。
     {
         $user_id = Auth::user()->id;
         //dd($user_id);
@@ -34,14 +34,14 @@ class WorkController extends Controller
             //dd($student_id);
             if ($student_id->count() == 0){ //pluckメソッドを使うとNULLにならず空の配列が返される。そのためーー。
                 //return view('home.screen')->with('identify_id', $identify_id);
-                return view('home.screen')
+                return view('teacher.top')
                 ->with(['identify_id' => $identify_id,
                         'students' => null]);
             }
             else{
                 //dd($student_id);
                 $student = Student::whereIn('id', $student_id)->get(); //whereInの使い方
-                return view('home.screen')
+                return view('teacher.top')
                 ->with(['identify_id' => $identify_id,
                         'students' => $student]);
             }
@@ -52,7 +52,7 @@ class WorkController extends Controller
             $latestWork = Work::where('teacher_student_id', $teacher_student_id)->latest()->first();
             //$identify_id = Auth::user()->identify_id;
             if( is_null($latestWork) ){
-                return view('home.screen')
+                return view('student.top')
                 ->with(['works' => $latestWork,
                         'identify_id' => $identify_id,
                         'plans1' => NULL,
@@ -63,7 +63,7 @@ class WorkController extends Controller
                         'plans6' => NULL,
                         'plans7' => NULL]);
             }else{
-            return view('home.screen')
+            return view('student.top')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'plans1' => $plan->getPlanDay(1, $latestWork->id),
@@ -90,7 +90,7 @@ class WorkController extends Controller
         // dd($teacher_student_id);
         $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
         if( is_null($latestWork) ){
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -109,7 +109,7 @@ class WorkController extends Controller
                     'submits6' => NULL,
                     'submits7' => NULL]);
         }elseif(is_null( $plan->getPlanDay(1, $latestWork->id))){
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -128,7 +128,7 @@ class WorkController extends Controller
                     'submits6' => NULL,
                     'submits7' => NULL]);
         }else{
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -228,10 +228,6 @@ class WorkController extends Controller
     public function homework_store(Request $request, Work $work)
     {
         $student_id = $request->student_id;
-        /*$validator = $request->getValidatorInstance();
-        if ($validator->fails()) {
-            return redirect()->route('work.create', ['student_id' => $student_id]);
-        }*/
         $input = $request['work'];
         $work->fill($input);
         $validator = Validator::make($request->all(), [
@@ -258,7 +254,7 @@ class WorkController extends Controller
         $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
         $identify_id = Auth::user()->identify_id;
         if( is_null($latestWork) ){
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -277,7 +273,7 @@ class WorkController extends Controller
                     'submits6' => NULL,
                     'submits7' => NULL]);
         }elseif(is_null( $plan->getPlanDay(1, $latestWork->id))){
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -296,7 +292,7 @@ class WorkController extends Controller
                     'submits6' => NULL,
                     'submits7' => NULL]);
         }else{
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,

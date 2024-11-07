@@ -34,16 +34,13 @@ class WorkController extends Controller
             //dd($student_id);
             if ($student_id->count() == 0){ //pluckメソッドを使うとNULLにならず空の配列が返される。そのためーー。
                 //return view('home.screen')->with('identify_id', $identify_id);
-                return view('home.screen')
-                ->with(['identify_id' => $identify_id,
-                        'students' => null]);
+                return view('teacher.top')->with(['students' => null]);
             }
             else{
                 //dd($student_id);
                 $student = Student::whereIn('id', $student_id)->get(); //whereInの使い方
-                return view('home.screen')
-                ->with(['identify_id' => $identify_id,
-                        'students' => $student]);
+                return view('teacher.top')
+                ->with(['students' => $student]);
             }
         }
         elseif( Auth::user()->identify_id == 2 ){
@@ -52,9 +49,8 @@ class WorkController extends Controller
             $latestWork = Work::where('teacher_student_id', $teacher_student_id)->latest()->first();
             //$identify_id = Auth::user()->identify_id;
             if( is_null($latestWork) ){
-                return view('home.screen')
+                return view('student.top')
                 ->with(['works' => $latestWork,
-                        'identify_id' => $identify_id,
                         'plans1' => NULL,
                         'plans2' => NULL,
                         'plans3' => NULL,
@@ -63,9 +59,8 @@ class WorkController extends Controller
                         'plans6' => NULL,
                         'plans7' => NULL]);
             }else{
-            return view('home.screen')
+            return view('student.top')
             ->with(['works' => $latestWork,
-                    'identify_id' => $identify_id,
                     'plans1' => $plan->getPlanDay(1, $latestWork->id),
                     'plans2' => $plan->getPlanDay(2, $latestWork->id),
                     'plans3' => $plan->getPlanDay(3, $latestWork->id),
@@ -90,7 +85,7 @@ class WorkController extends Controller
         // dd($teacher_student_id);
         $latestWork = Work::where('teacher_student_id', $teacher_student_id->id)->latest()->first();
         if( is_null($latestWork) ){
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -109,7 +104,7 @@ class WorkController extends Controller
                     'submits6' => NULL,
                     'submits7' => NULL]);
         }elseif(is_null( $plan->getPlanDay(1, $latestWork->id))){
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,
@@ -128,7 +123,7 @@ class WorkController extends Controller
                     'submits6' => NULL,
                     'submits7' => NULL]);
         }else{
-            return view('teacher.screen_teacher')
+            return view('teacher.home')
             ->with(['works' => $latestWork,
                     'identify_id' => $identify_id,
                     'student_id' => $student_id,

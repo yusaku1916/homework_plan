@@ -1,6 +1,6 @@
 <x-guest-layout>
     
-    <form action="{{ route('select.TorS.store') }}" method="POST">
+    <form action="{{ route('select.TorS.store') }}" method="POST" class='flex items-center justify-center'>
         @csrf
         <select name="identify_id">
             <option value="1" {{ old('identify_id') == '1' ? 'selected' : '' }}>先生</option>
